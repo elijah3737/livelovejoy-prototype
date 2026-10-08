@@ -1,0 +1,1757 @@
+<!doctype html>
+<html lang="ru" data-palette="red" data-font="1" data-size="m2" data-deviz="scenes" data-foot="photo">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Live Love Joy — ивент-агентство в Москве</title>
+<meta name="description" content="Городские праздники и концерты, частные торжества и корпоративные события в Москве — от идеи до последнего гостя.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1c1c1c">
+<script>try{var d=document.documentElement,q=new URLSearchParams(location.search);[["data-palette","llj-palette","color",["red","gold","light"]],["data-size","llj-size","text",["m2","mid"]],["data-deviz","llj-deviz","deviz",["scenes","hero","block","marquee"]],["data-foot","llj-foot","foot",["photo","video"]]].forEach(function(v){var x=q.get(v[2]);if(v[3].indexOf(x)<0){try{x=localStorage.getItem(v[1])}catch(e){x=null}}if(v[3].indexOf(x)>=0)d.setAttribute(v[0],x)})}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://assets.mixkit.co">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wdth,wght@12..36,75..150,300..900&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* Hallmark · page styles · штамп и токены — в tokens.css (первая строка) */
+
+/* ── База ─────────────────────────────────────────────── */
+[hidden] { display: none !important; }
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  overflow-x: clip;
+  background: var(--tone-dark);
+  color: var(--tone-dark-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: var(--mbar-h);
+}
+p, li { text-wrap: pretty; }
+.nowrap { white-space: nowrap; }
+h2, h3, .h2, .h3 { text-wrap: balance; }
+img, svg, picture { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+p, ul, ol, h1, h2, h3, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+:focus-visible { outline: 2px solid var(--ring, var(--focus)); outline-offset: 3px; }
+.ic { width: 1.25rem; height: 1.25rem; flex: none; }
+.ic--fill { fill: currentColor; }
+.ic--line { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.skip {
+  position: absolute; left: var(--gutter); top: var(--space-xs);
+  z-index: var(--z-toast);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--tone-dark-ink); color: var(--tone-dark);
+  border-radius: var(--radius-pill);
+  transform: translateY(-200%);
+}
+.skip:focus { transform: none; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ── Полосы: тёмная / светлая / фото ─────────────────── */
+.band, .band--photo { position: relative; background: var(--bg); color: var(--ink); }
+.band--dark {
+  --bg: var(--tone-dark); --bg-2: var(--tone-dark-2); --ink: var(--tone-dark-ink);
+  --muted: var(--tone-dark-muted); --rule: var(--tone-dark-rule);
+  --link: var(--accent-on-dark); --on-ink: var(--tone-dark);
+  --err: var(--error-on-dark);
+}
+:root[data-palette="light"] .band--dark { --err: var(--error-on-light); }
+.band--light {
+  --bg: var(--tone-light); --bg-2: var(--tone-light-2); --ink: var(--tone-light-ink);
+  --muted: var(--tone-light-muted); --rule: var(--tone-light-rule);
+  --link: var(--accent-on-light); --on-ink: var(--tone-light);
+  --ring: var(--accent-on-light);
+  --err: var(--error-on-light);
+}
+.band--photo {
+  --bg: var(--photo-base); --ink: var(--photo-ink);
+  --muted: var(--photo-muted); --rule: var(--photo-rule);
+  --link: var(--accent-on-photo); --on-ink: var(--photo-base);
+  --err: var(--error-on-photo);
+  color-scheme: dark;
+  isolation: isolate;
+  overflow: hidden;
+}
+.media, .media img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+}
+.media { z-index: -2; }
+.media img { object-fit: cover; }
+.scrim { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+
+/* ── Типографика ─────────────────────────────────────── */
+.h2 {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch);
+  font-weight: 700;
+  font-size: var(--text-h2);
+  line-height: 1.04;
+  letter-spacing: -0.012em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.h3 {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch);
+  font-weight: 600;
+  font-size: var(--text-h3);
+  line-height: 1.15;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.label__dot { color: var(--link); }
+.sec-head {
+  display: grid;
+  gap: var(--space-md);
+  margin-bottom: clamp(var(--space-xl), 4vw, var(--space-2xl));
+}
+.sec-head__note { color: var(--muted); max-width: 46ch; }
+@media (min-width: 48rem) {
+  .sec-head--row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 20rem);
+    align-items: end;
+    column-gap: var(--space-xl);
+  }
+}
+
+/* ── Кнопки-пилюли и ссылки ──────────────────────────── */
+.pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6em;
+  min-height: 3rem;
+  padding: 0 var(--space-lg);
+  border-radius: var(--radius-pill);
+  border: var(--rule-w) solid transparent;
+  font-size: var(--fs-pill);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  background: transparent;
+  transition: transform var(--dur-micro) var(--ease-out);
+}
+.pill:active { transform: translateY(1px); }
+.icon-btn:active, .go:active, .segments a:active, .type:active { opacity: 0.8; }
+.pill:disabled, .pill[aria-disabled="true"], .input:disabled, .select select:disabled { opacity: 0.55; cursor: not-allowed; }
+.pill--solid { background: var(--ink); color: var(--on-ink); }
+.pill--solid:hover { background: var(--accent-fill); color: var(--accent-ink); }
+.pill--line { color: var(--ink); border-color: color-mix(in oklch, var(--ink) 50%, transparent); }
+.pill--line:hover { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+.pill--accent { background: var(--accent-fill); color: var(--accent-ink); }
+.pill--accent:hover { background: var(--ink); color: var(--on-ink); }
+.pill--sm { min-height: 2.75rem; padding: 0 var(--space-md); font-size: var(--fs-pill-sm); }
+.pill .ic { width: 1.1rem; height: 1.1rem; }
+
+.chips { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+.chip {
+  display: inline-flex; align-items: center;
+  min-height: 2rem; padding: 0 var(--space-sm);
+  border-radius: var(--radius-pill);
+  border: var(--rule-w) solid var(--rule);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+.band--photo .chip { background: var(--photo-fill); }
+
+.go {
+  display: inline-flex; align-items: center; gap: 0.55em;
+  padding-block: var(--space-xs);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: var(--rule-w) solid color-mix(in oklch, var(--ink) 40%, transparent);
+}
+.go__arr { color: var(--link); }
+.go:hover { color: var(--link); border-color: var(--link); }
+
+/* ── Шапка (стекло, фиксированная) ───────────────────── */
+.hdr {
+  --ink: var(--tone-dark-ink); --muted: var(--tone-dark-muted);
+  --rule: var(--glass-rule); --link: var(--accent-on-dark); --on-ink: var(--tone-dark);
+  position: fixed; inset: 0 0 auto 0;
+  z-index: var(--z-sticky);
+  color: var(--ink);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: var(--rule-w) solid var(--rule);
+}
+:root[data-palette="light"] .hdr { --on-ink: var(--tone-light); }
+.hdr__in { display: flex; align-items: center; gap: var(--space-sm); height: var(--hdr-h); }
+.brand { display: inline-flex; flex-direction: column; gap: var(--space-2xs); text-decoration: none; line-height: 1; min-width: 0; }
+.brand__mark {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700;
+  font-size: 0.9375rem; letter-spacing: 0.04em; white-space: nowrap;
+}
+.brand__sub { font-size: 0.6875rem; letter-spacing: 0.2em; color: var(--muted); white-space: nowrap; }
+.hdr__actions { margin-left: auto; display: flex; align-items: center; gap: var(--space-xs); }
+.hdr__tablet { display: none; }
+.hdr__phone { display: none; font-size: var(--text-sm); font-weight: 500; text-decoration: none; white-space: nowrap; padding-inline: var(--space-xs); }
+.hdr__phone:hover { color: var(--link); }
+.icon-btn {
+  display: inline-grid; place-items: center;
+  width: 2.75rem; height: 2.75rem;
+  border-radius: 50%;
+  border: var(--rule-w) solid var(--rule);
+  background: transparent;
+  color: var(--ink);
+  text-decoration: none;
+}
+.icon-btn:hover { color: var(--link); border-color: currentColor; }
+.burger__lines, .burger__lines::before {
+  display: block; width: 1.125rem; height: 1.5px; background: currentColor; border-radius: 1px;
+}
+.burger__lines { position: relative; transform: translateY(-3px); }
+.burger__lines::before { content: ""; position: absolute; left: 0; top: 6px; }
+@media (min-width: 48rem) {
+  .hdr__tablet { display: flex; align-items: center; gap: var(--space-xs); }
+  .brand__mark { font-size: 1.0625rem; }
+}
+@media (min-width: 75rem) { .hdr__phone { display: inline-flex; } }
+
+/* ── Меню на весь экран ──────────────────────────────── */
+.menu {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  max-width: none; max-height: none;
+  margin: 0; padding: 0; border: 0;
+  background: var(--bg); color: var(--ink);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.menu[open] { display: grid; grid-template-rows: auto 1fr auto; animation: menu-in var(--dur-long) var(--ease-out); }
+.menu.is-closing { animation: menu-out calc(var(--dur-short) * 0.9) var(--ease-in) forwards; }
+.menu::backdrop { background: transparent; }
+@keyframes menu-in { from { opacity: 0; transform: translateY(-1.25rem); } }
+@keyframes menu-out { to { opacity: 0; transform: translateY(-0.75rem); } }
+.menu__top { display: flex; align-items: center; justify-content: space-between; height: var(--hdr-h); border-bottom: var(--rule-w) solid var(--rule); }
+.menu__close { position: relative; }
+.menu__close::before, .menu__close::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 1.125rem; height: 1.5px; background: currentColor; border-radius: 1px;
+}
+.menu__close::before { transform: translate(-50%, -50%) rotate(45deg); }
+.menu__close::after { transform: translate(-50%, -50%) rotate(-45deg); }
+.menu__nav { display: grid; align-content: center; gap: var(--space-xl); padding-block: var(--space-xl); }
+.menu__words { display: grid; gap: var(--space-2xs); }
+.menu__big {
+  display: flex; flex-wrap: wrap; align-items: baseline; column-gap: var(--space-md);
+  text-decoration: none;
+}
+.menu__word {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 800;
+  font-size: calc(clamp(3rem, 2rem + 7vw, 8rem) * var(--font-display-scale));
+  line-height: 1.02; letter-spacing: -0.01em;
+  overflow-wrap: anywhere; min-width: 0;
+}
+.menu__ru { font-size: var(--text-md); color: var(--muted); white-space: nowrap; }
+.menu__words { container-type: inline-size; }
+:root[data-deviz="scenes"] .menu__word { font-size: min(calc(clamp(3rem, 2rem + 7vw, 8rem) * var(--font-display-scale)), calc(100cqi / 7)); }
+.menu__big:hover .menu__word { color: var(--link); }
+.menu__more { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-xl); }
+.menu__more a {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 600; font-size: var(--text-h3);
+  text-transform: uppercase; text-decoration: none; white-space: nowrap;
+}
+.menu__more a:hover { color: var(--link); }
+.menu__bottom {
+  display: flex; flex-wrap: wrap; gap: var(--space-xs);
+  padding-block: var(--space-lg) calc(var(--space-lg) + env(safe-area-inset-bottom));
+  border-top: var(--rule-w) solid var(--rule);
+}
+
+/* ── 1. Первый экран ─────────────────────────────────── */
+.hero { min-height: var(--screen-h); display: grid; align-items: end; }
+.hero .scrim {
+  background:
+    linear-gradient(to top, var(--scrim-strong), var(--scrim-clear) 72%),
+    linear-gradient(to bottom, var(--scrim-mid), var(--scrim-clear) 30%),
+    var(--scrim-soft);
+}
+.hero__in {
+  container-type: inline-size;
+  padding-top: calc(var(--hdr-h) + var(--space-sm));
+  padding-bottom: calc(var(--mbar-h) + var(--palette-h) + var(--space-2xl));
+  display: grid;
+  gap: clamp(var(--space-md), 2.2svh, var(--space-lg));
+}
+.hero__kicker { color: var(--photo-muted); }
+.hero__title { margin: 0; font-weight: inherit; }
+.sign {
+  display: block;
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.sign > span { display: block; }
+.hero .sign { font-size: min(calc(100cqi / var(--k-sign-word)), 19svh); margin-left: -0.04em; }
+@media (min-width: 48rem) {
+  .sign > span { display: inline; }
+  .hero .sign { font-size: min(calc(100cqi / var(--k-sign-line)), 26svh); }
+}
+.hero__row { display: grid; gap: var(--space-lg); }
+.segments {
+  display: flex; flex-wrap: wrap; align-items: center;
+  column-gap: var(--space-sm); row-gap: var(--space-2xs);
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch);
+  font-size: var(--fs-seg);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.segments a {
+  text-decoration: none; white-space: nowrap;
+  padding-block: var(--space-2xs);
+  border-bottom: var(--rule-w) solid transparent;
+}
+.segments a:hover { color: var(--link); border-color: var(--link); }
+.segments__sep { color: var(--photo-rule); }
+@media (max-width: 47.99rem) {
+  .segments { column-gap: 1.1em; }
+  .segments__sep, .hero__motto i { display: none; }
+}
+.hero__tagline { color: var(--photo-muted); max-width: 46ch; margin-top: var(--space-xs); }
+.hero__cta { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+.hero__cta .pill { flex: 1 1 auto; min-height: var(--cta-h); }
+@media (min-width: 48rem) {
+  .hero__row { grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: var(--space-xl); }
+  .hero__cta .pill { flex: none; padding-inline: calc(var(--space-lg) + var(--space-sm)); }
+  .hero__cta .pill--solid { min-width: 17rem; }
+}
+/* видео первого экрана поверх фото: фото — пока видео не пошло или при «меньше движения» */
+.hero__video { object-fit: cover; opacity: 0; transition: opacity 900ms var(--ease-out); }
+.hero__video.is-on { opacity: 1; }
+
+/* ── Девиз «Живи, люби, радуйся» — четыре места на выбор (прототип) ── */
+.hero__motto {
+  display: none;
+  margin-top: clamp(var(--space-xs), 1.2svh, var(--space-md));
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch);
+  font-weight: 300;
+  font-size: clamp(1.375rem, 0.85rem + 2.3vw, 2.75rem);
+  line-height: 1.15; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--photo-ink);
+}
+.hero__motto span { white-space: nowrap; }
+.hero__motto i { font-style: normal; color: var(--link); }
+:root[data-deviz="hero"] .hero__motto { display: block; }
+
+.motto { display: none; padding-block: clamp(var(--space-2xl), 7vw, var(--space-4xl)); scroll-margin-top: var(--hdr-h); }
+:root[data-deviz="block"] .motto { display: block; }
+.motto__in { container-type: inline-size; }
+/* три слова столбиком, на широком экране — лесенкой */
+.motto__line {
+  display: grid;
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700;
+  font-size: min(calc(100cqi / var(--k-motto-word)), 11rem);
+  line-height: 0.98; letter-spacing: 0; text-transform: uppercase;
+  white-space: nowrap;
+}
+.motto__line i { font-style: normal; color: var(--link); }
+@media (min-width: 48rem) {
+  .motto__line > span:nth-child(2) { justify-self: center; }
+  .motto__line > span:nth-child(3) { justify-self: end; }
+}
+:root:not([data-deviz="marquee"]) .marquee { display: none; }
+
+/* ── 2. О нас + факты ────────────────────────────────── */
+.about { padding-block: var(--section-y); scroll-margin-top: var(--hdr-h); }
+.about__grid { display: grid; gap: var(--space-2xl); }
+.manifesto {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch);
+  font-weight: 700;
+  font-size: calc(clamp(1.75rem, 1.05rem + 2.9vw, 3.6rem) * var(--font-display-scale));
+  line-height: 1.12;
+  letter-spacing: -0.012em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.manifesto__line { display: block; }
+.manifesto em {
+  font-family: var(--font-accent);
+  font-style: var(--font-accent-style);
+  font-weight: var(--font-accent-weight);
+  font-stretch: var(--font-accent-stretch);
+  font-size: var(--font-accent-size);
+  line-height: 0.8;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.manifesto__dot { color: var(--link); font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-style: normal; font-size: 0.76em; }
+.about__lead { margin-top: var(--space-xl); font-size: var(--text-lg); line-height: 1.55; max-width: 48ch; color: var(--muted); }
+.about__lead strong { color: var(--ink); font-weight: 500; }
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: var(--rule-w) solid var(--rule);
+  align-self: end;
+}
+.fact {
+  display: grid; align-content: start; gap: var(--space-xs);
+  padding: var(--space-lg) var(--space-md) var(--space-lg) 0;
+  border-bottom: var(--rule-w) solid var(--rule);
+  min-width: 0;
+}
+.fact:nth-child(even) { padding-left: var(--space-md); border-left: var(--rule-w) solid var(--rule); }
+.fact__num {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700;
+  font-size: calc(clamp(2.25rem, 1.6rem + 2.6vw, 4rem) * var(--font-display-scale));
+  line-height: 1; letter-spacing: -0.02em;
+  overflow-wrap: anywhere; min-width: 0;
+}
+.fact__cap { font-size: var(--text-sm); color: var(--muted); max-width: 22ch; }
+.fact--todo .fact__num { color: var(--muted); }
+@media (min-width: 60rem) {
+  .about__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--space-3xl); }
+}
+
+/* ── 3. Виды мероприятий (как у M2: номер, название, строка, переход) ── */
+.types { padding-block: var(--section-y); scroll-margin-top: var(--hdr-h); }
+.types__list { display: grid; border-top: var(--rule-w) solid var(--rule); }
+.types__list > li { min-width: 0; }
+.type {
+  container-type: inline-size;
+  display: grid; align-content: start; gap: var(--space-sm);
+  height: 100%;
+  padding-block: var(--space-lg) var(--space-xl);
+  border-bottom: var(--rule-w) solid var(--rule);
+  text-decoration: none;
+}
+.type__num { font-size: var(--text-sm); color: var(--muted); font-variant-numeric: tabular-nums; }
+.type__name {
+  margin-top: var(--space-sm);
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700;
+  /* КОРПОРАТИВНЫЕ = 12.35em — кегль не больше ширины колонки */
+  font-size: min(var(--text-h3), calc(100cqi / 12.8));
+  line-height: 1.15; text-transform: uppercase; letter-spacing: 0.01em;
+}
+.type__text { color: var(--muted); max-width: 36ch; }
+.type__go {
+  justify-self: start; display: inline-flex; align-items: center; gap: 0.55em;
+  margin-top: var(--space-xs); padding-block: var(--space-2xs);
+  font-weight: 500;
+  border-bottom: var(--rule-w) solid color-mix(in oklch, var(--ink) 40%, transparent);
+}
+.type__arr { color: var(--link); }
+.type:hover .type__name, .type:hover .type__go { color: var(--link); }
+.type:hover .type__go { border-color: var(--link); }
+.types .h2 { font-size: min(var(--text-h2), calc((100vw - 2 * var(--gutter)) / 10.9)); }
+.types__note { margin-top: var(--space-lg); font-size: var(--text-sm); color: var(--muted); max-width: 60ch; }
+@media (min-width: 60rem) {
+  .types__list { grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: var(--rule-w) solid var(--rule); }
+  .type { min-height: 16rem; padding: var(--space-lg) var(--space-xl) var(--space-xl); border-bottom: 0; border-left: var(--rule-w) solid var(--rule); }
+  .types__list > li:first-child .type { padding-left: 0; border-left: 0; }
+}
+
+/* ── 4–6. Сцены LIVE / LOVE / JOY ───────────────────── */
+.scene { min-height: var(--screen-h); display: grid; align-items: end; scroll-margin-top: 0; }
+.scene__in {
+  container-type: inline-size;
+  padding-top: calc(var(--hdr-h) + var(--space-2xl));
+  padding-bottom: clamp(var(--space-xl), 7svh, var(--space-3xl));
+  display: grid; gap: var(--space-md);
+  justify-items: start;
+}
+.scene__title { display: grid; gap: var(--space-xs); }
+.scene__word {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 800;
+  font-size: min(calc(100cqi / var(--k-scene)), var(--scene-cap));
+  line-height: 1; letter-spacing: -0.02em;
+  margin-left: -0.05em;
+  overflow-wrap: normal; white-space: nowrap;
+}
+.w-ru { display: none; }
+:root[data-deviz="scenes"] .w-en { display: none; }
+:root[data-deviz="scenes"] .w-ru { display: inline; }
+:root[data-deviz="scenes"] .scene__word { font-size: min(calc(100cqi / var(--k-scene-ru)), var(--scene-cap)); }
+.scene__sub {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 600;
+  font-size: var(--text-h3); line-height: 1.2;
+  text-transform: uppercase; letter-spacing: 0.02em;
+}
+.scene__text { max-width: 46ch; font-size: var(--text-lg); line-height: 1.5; color: var(--muted); }
+.scene .chips { margin-top: var(--space-2xs); }
+.scene .go { margin-top: var(--space-xs); }
+
+.scene--live .scrim {
+  background:
+    linear-gradient(to top, var(--scrim-strong) 8%, var(--scrim-clear) 78%),
+    linear-gradient(to right, var(--scrim-mid), var(--scrim-clear) 70%);
+}
+.scene--joy .scrim {
+  background:
+    linear-gradient(to top, var(--scrim-strong) 6%, var(--scrim-clear) 75%),
+    linear-gradient(to left, var(--scrim-strong) 10%, var(--scrim-clear) 75%);
+}
+.scene--joy .scene__in { justify-items: end; text-align: right; }
+.scene--joy .chips { justify-content: flex-end; }
+.scene--joy .scene__word { margin-left: 0; margin-right: -0.04em; }
+
+/* LOVE — редакционный коллаж на светлой полосе */
+.love { padding-block: var(--section-y); scroll-margin-top: var(--hdr-h); }
+.love__in { container-type: inline-size; }
+.love .scene__word { color: var(--ink); }
+.love__grid { display: grid; gap: var(--space-2xl); margin-top: var(--space-lg); }
+.love__text { display: grid; gap: var(--space-md); align-content: start; justify-items: start; }
+.love .scene__text { color: var(--muted); }
+.collage { position: relative; aspect-ratio: 6 / 5; }
+.collage__item { position: absolute; overflow: hidden; background: var(--bg-2); }
+.collage__item img { width: 100%; height: 100%; object-fit: cover; }
+.collage__a { left: 0; top: 6%; width: 61%; aspect-ratio: 4 / 5; }
+.collage__b { right: 0; top: 0; width: 35%; aspect-ratio: 1 / 1; }
+.collage__c { right: 5%; bottom: 0; width: 45%; aspect-ratio: 4 / 3; z-index: var(--z-raised); outline: clamp(4px, 0.6vw, 8px) solid var(--bg); }
+.collage__cap {
+  position: absolute; left: 63.5%; top: 45.5%;
+  max-width: 14ch;
+  font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+}
+@media (min-width: 60rem) {
+  .love__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--space-3xl); align-items: start; }
+}
+
+/* ── Бегущая строка с девизом (вариант) ─────────────────── */
+.marquee { padding-block: clamp(var(--space-lg), 3vw, var(--space-2xl)); overflow: hidden; border-block: var(--rule-w) solid var(--rule); scroll-margin-top: calc(var(--hdr-h) + var(--space-2xl)); }
+.marquee__track { display: flex; width: max-content; animation: marquee var(--dur-marquee) linear infinite; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__list {
+  display: flex; align-items: center; flex: none;
+  gap: 0.42em; padding-right: 0.42em;
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700;
+  font-size: clamp(2rem, 1.2rem + 3.6vw, 5rem);
+  line-height: 1.08; text-transform: uppercase; letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.marquee__star { width: 0.42em; height: 0.42em; color: var(--link); fill: currentColor; flex: none; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ── 8. Что мы делаем ───────────────────────────────── */
+.works { padding-block: var(--section-y); scroll-margin-top: var(--hdr-h); }
+.works__grid { display: grid; gap: var(--space-2xl); }
+.works__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--bg-2); }
+.works__media img { width: 100%; height: 100%; object-fit: cover; }
+.works__note {
+  position: absolute; left: var(--space-md); bottom: var(--space-md);
+  display: inline-flex; align-items: center; gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-pill);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  color: var(--tone-dark-ink);
+  font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase;
+}
+.works__note::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--accent); }
+.works__lead { margin-top: var(--space-md); font-size: var(--text-lg); color: var(--muted); max-width: 46ch; }
+.step__text { grid-column: 2; margin-top: var(--space-2xs); font-size: var(--text-sm); line-height: 1.5; color: var(--muted); }
+.steps { margin-top: var(--space-xl); counter-reset: step; }
+.step {
+  display: grid; grid-template-columns: 2.75rem minmax(0, 1fr);
+  align-items: baseline;
+  padding-block: clamp(var(--space-md), 1.6vw, var(--space-lg));
+  border-top: var(--rule-w) solid var(--rule);
+}
+.step:last-child { border-bottom: var(--rule-w) solid var(--rule); }
+.step__num { font-size: var(--text-xs); letter-spacing: 0.1em; color: var(--link); font-variant-numeric: tabular-nums; }
+.step__title {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 600;
+  font-size: clamp(1rem, 0.78rem + 0.95vw, 1.625rem);
+  line-height: 1.2; text-transform: uppercase;
+  overflow-wrap: anywhere; min-width: 0;
+}
+@media (min-width: 60rem) {
+  .works__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--space-3xl); align-items: start; }
+  .works__media { aspect-ratio: 4 / 5; position: sticky; top: calc(var(--hdr-h) + var(--space-lg)); }
+}
+
+/* ── Фото-паузы ─────────────────────────────────────── */
+.pause { min-height: var(--screen-h); display: grid; align-items: end; }
+.pause .scrim { background: linear-gradient(to top, var(--scrim-mid), var(--scrim-clear) 45%); }
+.pause__line {
+  padding-block: clamp(var(--space-xl), 7svh, var(--space-3xl));
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700;
+  font-size: clamp(1.5rem, 0.9rem + 2.6vw, 3.25rem);
+  line-height: 1.08; text-transform: uppercase; letter-spacing: -0.01em;
+  max-width: 18ch;
+  overflow-wrap: anywhere; min-width: 0;
+}
+.pause__line .label__dot { font-size: 1em; }
+
+/* ── 9. Проекты ─────────────────────────────────────── */
+.projects { padding-top: var(--section-y); scroll-margin-top: var(--hdr-h); }
+.tiles { display: grid; grid-template-columns: minmax(0, 1fr); }
+.tile {
+  position: relative; display: block; overflow: hidden;
+  aspect-ratio: 4 / 3;
+  isolation: isolate;
+  color: var(--photo-ink);
+  text-decoration: none;
+  background: var(--photo-base);
+}
+.tile img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;
+  transition: transform var(--dur-long) var(--ease-out);
+}
+.tile::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: var(--scrim-mid);
+  transition: opacity var(--dur-long) var(--ease-out);
+}
+.tile::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to top, var(--scrim-mid), var(--scrim-clear) 55%);
+}
+.tile__body {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  display: grid; gap: var(--space-xs); justify-items: start;
+  padding: clamp(var(--space-md), 2.4vw, var(--space-xl));
+}
+.tile__meta { font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--photo-muted); }
+.tile__title {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700;
+  font-size: clamp(1.25rem, 0.95rem + 1.25vw, 2.125rem);
+  line-height: 1.06; text-transform: uppercase; letter-spacing: -0.01em;
+  max-width: 16ch; overflow-wrap: anywhere; min-width: 0;
+}
+.tile__todo {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  min-height: 1.75rem; padding: 0 var(--space-sm);
+  border-radius: var(--radius-pill); border: var(--rule-w) dashed var(--photo-rule);
+  font-size: var(--text-xs); letter-spacing: 0.06em; color: var(--photo-muted); white-space: nowrap;
+}
+.tile:hover img, .tile:focus-visible img { transform: scale(1.045); }
+.tile:hover::before, .tile:focus-visible::before { opacity: 0.35; }
+.tile:focus-visible { outline-offset: -4px; }
+.projects__note { padding-block: var(--space-lg) var(--space-2xl); font-size: var(--text-sm); color: var(--muted); }
+.tile__text { font-size: var(--text-sm); line-height: 1.45; color: var(--photo-ink); opacity: 0.86; max-width: 44ch; }
+.tile__pill { margin-top: var(--space-sm); pointer-events: none; }
+.tiles__wide { grid-column: 1 / -1; }
+
+/* ── 11б. Журнал ────────────────────────────────────── */
+.journal { padding-block: var(--section-y); scroll-margin-top: var(--hdr-h); }
+.posts { display: grid; gap: var(--space-2xl); margin-top: var(--space-xl); }
+.post { display: grid; align-content: start; gap: var(--space-xs); color: inherit; text-decoration: none; min-width: 0; }
+.post__img { display: block; aspect-ratio: 4 / 3; overflow: hidden; margin-bottom: var(--space-sm); background: var(--bg-2); }
+.post__img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-long) var(--ease-out); }
+.post:hover .post__img img, .post:focus-visible .post__img img { transform: scale(1.04); }
+.post__meta { font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--link); }
+.post__title {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700;
+  font-size: clamp(1.125rem, 0.95rem + 0.7vw, 1.5rem); line-height: 1.12; text-transform: uppercase;
+  text-wrap: balance; overflow-wrap: anywhere; min-width: 0;
+}
+.post__text { font-size: var(--text-sm); color: var(--muted); }
+.post .go { justify-self: start; margin-top: var(--space-xs); }
+@media (min-width: 48rem) {
+  .posts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tiles__wide .tile { aspect-ratio: 32 / 10; }
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tile { aspect-ratio: 16 / 10; }
+}
+
+/* ── Нам доверяют — один в один с M2: заголовок по центру, линии во всю ширину, два ряда логотипов навстречу ── */
+.trust { padding-top: var(--section-y); scroll-margin-top: var(--hdr-h); overflow: hidden; }
+.trust__title { text-align: center; margin: 0 0 clamp(var(--space-md), 1.5vw, var(--space-lg)); }
+.trust__rows {
+  border-block: var(--rule-w) solid var(--rule);
+  padding-block: clamp(2.5rem, 6vw, 6.25rem);
+  display: grid; row-gap: clamp(2rem, 4.5vw, 4.75rem);
+}
+.trust__row { overflow: hidden; }
+.trust__track { display: flex; width: max-content; animation: marquee 60s linear infinite; }
+.trust__row--back .trust__track { animation-direction: reverse; }
+.trust__list { display: flex; align-items: center; flex: none; gap: clamp(3rem, 10vw, 10.5rem); padding-right: clamp(3rem, 10vw, 10.5rem); }
+.trust__item { flex: none; display: flex; }
+.trust__logo { height: clamp(2.5rem, 1.5rem + 2.5vw, 3.75rem); width: auto; color: var(--ink); }
+
+.socials { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+.socials .icon-btn { --rule: var(--tone-light-rule); }
+.band--dark .socials .icon-btn { --rule: var(--tone-dark-rule); }
+
+/* ── 12. Заявка ─────────────────────────────────────── */
+.contact { padding-block: var(--section-y); scroll-margin-top: 0; }
+.contact .scrim {
+  background:
+    linear-gradient(to bottom, var(--scrim-strong), var(--scrim-mid) 55%, var(--scrim-strong)),
+    var(--scrim-soft);
+}
+.contact__in { padding-top: calc(var(--hdr-h) * 0.6); }
+.contact__title {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 800;
+  font-size: var(--text-shout);
+  line-height: 1.02; letter-spacing: -0.02em; text-transform: uppercase;
+  max-width: 13ch;
+  overflow-wrap: anywhere; min-width: 0;
+}
+.contact__lead { margin-top: var(--space-lg); font-size: var(--text-lg); color: var(--muted); max-width: 46ch; }
+.contact__grid { display: grid; gap: var(--space-2xl); margin-top: clamp(var(--space-xl), 5vw, var(--space-3xl)); }
+.clinks { display: grid; align-content: start; border-top: var(--rule-w) solid var(--rule); }
+.clink {
+  display: flex; align-items: center; gap: var(--space-md);
+  min-height: 3.75rem;
+  border-bottom: var(--rule-w) solid var(--rule);
+  text-decoration: none;
+  font-size: var(--text-md);
+}
+.clink__v { white-space: nowrap; }
+@media (max-width: 22.49rem) { .clink__k { display: none; } }
+.clink__k { margin-left: auto; font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.clink:hover { color: var(--link); }
+.clinks .pill { margin-top: var(--space-xl); justify-self: start; }
+.clinks__hint { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--muted); max-width: 46ch; }
+
+.form { display: grid; gap: var(--space-lg); min-width: 0; }
+.form__row { display: grid; gap: var(--space-lg); }
+.field { display: grid; gap: var(--space-xs); min-width: 0; }
+.field__label {
+  font-size: var(--text-sm); font-weight: 600; color: var(--ink);
+}
+.input, .select select {
+  width: 100%;
+  height: 3.5rem;
+  padding: 0 var(--space-md);
+  border: var(--rule-w) solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: color-mix(in oklch, var(--ink) 7%, transparent);
+  color: var(--ink);
+  font-size: var(--text-base);
+  appearance: none;
+  -webkit-appearance: none;
+}
+.input::placeholder { color: var(--muted); opacity: 0.8; }
+.input:hover, .select select:hover { border-color: var(--ink); }
+.input:focus-visible, .select select:focus-visible {
+  outline: 2px solid var(--ring, var(--focus));
+  outline-offset: 2px;
+  border-color: var(--ring, var(--focus));
+}
+.select { position: relative; }
+.select select { padding-right: 3rem; cursor: pointer; }
+.select::after {
+  content: ""; position: absolute; right: 1.25rem; top: 50%;
+  width: 0.5rem; height: 0.5rem;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: translateY(-75%) rotate(45deg);
+  pointer-events: none;
+}
+.select option { background: var(--photo-base); color: var(--photo-ink); }
+.consent { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-sm); align-items: start; font-size: var(--text-sm); color: var(--muted); }
+.consent input {
+  appearance: none; -webkit-appearance: none;
+  width: 1.375rem; height: 1.375rem; margin: 0;
+  border: var(--rule-w) solid var(--ink); border-radius: var(--radius-sm);
+  display: grid; place-items: center; background: transparent;
+}
+.consent input::after {
+  content: ""; width: 0.375rem; height: 0.7rem;
+  border-right: 2px solid var(--on-ink); border-bottom: 2px solid var(--on-ink);
+  transform: translateY(-1px) rotate(45deg) scale(0);
+  transition: transform var(--dur-micro) var(--ease-out);
+}
+.consent input:checked { background: var(--ink); }
+.consent input:checked::after { transform: translateY(-1px) rotate(45deg) scale(1); }
+.consent a { color: var(--ink); text-underline-offset: 0.18em; }
+.consent a:hover { color: var(--link); }
+.field__err {
+  display: flex; align-items: flex-start; gap: var(--space-xs);
+  min-height: 1lh;
+  font-size: var(--text-sm); color: var(--err);
+}
+.field__err::before {
+  content: "!"; flex: none;
+  display: inline-grid; place-items: center;
+  width: 1.125rem; height: 1.125rem; margin-top: var(--space-3xs);
+  border-radius: 50%; border: 1.5px solid currentColor;
+  font-size: 0.6875rem; font-weight: 600; line-height: 1;
+}
+.field__err:empty::before { display: none; }
+.is-invalid .input, .is-invalid select, .is-invalid .consent input { border-color: var(--err); }
+.form__submit { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md); margin-top: var(--space-xs); }
+.form__submit .pill { min-height: var(--cta-h); padding-inline: calc(var(--space-lg) + var(--space-xs)); }
+.form__note { font-size: var(--text-xs); color: var(--muted); }
+.done {
+  display: grid; align-content: start; gap: var(--space-md);
+  padding: var(--space-xl);
+  border: var(--rule-w) solid var(--rule);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+.contact .done { background: var(--photo-fill); }
+.done__title { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700; font-size: var(--text-h2); line-height: 1.04; text-transform: uppercase; overflow-wrap: anywhere; min-width: 0; }
+.done__title span { color: var(--link); }
+.done p { color: var(--muted); max-width: 46ch; }
+.done .pill { justify-self: start; }
+.done__btns { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+@media (min-width: 40rem) {
+  .form__row { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-xl); }
+}
+@media (min-width: 60rem) {
+  .contact__grid { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); column-gap: var(--space-3xl); }
+}
+
+/* ── 13. Подвал ─────────────────────────────────────── */
+/* снизу — место под плавающий переключатель палитры (только в прототипе), чтобы он не закрывал юр. строку */
+.foot { padding-top: clamp(var(--space-xl), 5vw, var(--space-3xl)); padding-bottom: calc(var(--space-xl) + var(--palette-h) + var(--space-sm)); }
+.foot__signwrap { container-type: inline-size; scroll-margin-top: calc(var(--hdr-h) + var(--space-lg)); }
+.foot__sign {
+  font-size: min(calc(100cqi / var(--k-sign-word)), 40svh);
+  color: var(--tone-dark-2);
+  background-color: var(--tone-dark-2);
+  background-size: cover;
+  background-position: center 40%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: -0.04em;
+}
+.foot__sign.is-lit { background-image: var(--foot-photo); }
+/* видео в буквах: белые буквы на фоне цвета полосы + darken — видео видно только в буквах.
+   contrast() поднимает чёрное видео выше цвета полосы, иначе тени проступят вокруг букв */
+.foot__vsign { display: none; position: relative; isolation: isolate; }
+:root[data-foot="video"] .foot__sign { display: none; }
+:root[data-foot="video"] .foot__vsign { display: block; }
+.foot__video {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  filter: contrast(0.72) brightness(1.08);
+}
+.foot__vtext {
+  position: relative; z-index: 1;
+  font-size: min(calc(100cqi / var(--k-sign-word)), 40svh);
+  margin-left: -0.04em;
+  background: var(--tone-dark); color: var(--knock-light);
+  mix-blend-mode: darken;
+}
+:root[data-palette="light"] .foot__video { filter: contrast(0.72); }
+:root[data-palette="light"] .foot__vtext { color: var(--knock-dark); mix-blend-mode: lighten; }
+@media (min-width: 48rem) {
+  .foot__sign, .foot__vtext { font-size: calc(100cqi / var(--k-sign-line)); }
+}
+.foot__grid {
+  display: grid; gap: var(--space-xl);
+  margin-top: clamp(var(--space-xl), 4vw, var(--space-2xl));
+  padding-top: var(--space-xl);
+  border-top: var(--rule-w) solid var(--rule);
+}
+.foot__nav { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-lg); }
+.foot__nav a, .foot__contacts a {
+  text-decoration: none; white-space: nowrap;
+}
+.foot__nav a { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 600; font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.04em; }
+.foot__nav a:hover, .foot__contacts a:hover { color: var(--link); }
+.foot__contacts { display: grid; gap: var(--space-2xs); justify-items: start; }
+.foot__contacts a:first-child { font-size: var(--text-md); font-weight: 500; }
+.foot__legal {
+  display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg);
+  margin-top: var(--space-xl); padding-top: var(--space-lg);
+  border-top: var(--rule-w) solid var(--rule);
+  font-size: var(--text-xs); color: var(--muted);
+}
+.foot__legal a { white-space: nowrap; }
+.foot__legal a:hover { color: var(--link); }
+@media (min-width: 60rem) {
+  .foot__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 3fr) auto; align-items: start; }
+}
+
+/* ── Нижняя панель на телефоне ───────────────────────── */
+.mbar {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  z-index: var(--z-sticky);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xs);
+  padding: var(--space-xs) var(--gutter) calc(var(--space-xs) + env(safe-area-inset-bottom));
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
+  border-top: var(--rule-w) solid var(--glass-rule);
+  --ink: var(--tone-dark-ink); --on-ink: var(--tone-dark); color: var(--ink);
+}
+:root[data-palette="light"] .mbar { --on-ink: var(--tone-light); }
+.mbar .pill { min-height: 3rem; padding-inline: var(--space-sm); font-size: var(--fs-pill-sm); }
+@media (min-width: 48rem) { .mbar { display: none; } }
+
+/* ── Окно «Обсудить событие» (как у M2: имя, телефон, тип) ── */
+.lead-dlg {
+  width: min(calc(100% - 2 * var(--space-sm)), 35rem);
+  max-width: none; max-height: calc(100svh - 2 * var(--space-sm));
+  margin: auto; padding: 0;
+  border: var(--rule-w) solid var(--rule); border-radius: var(--radius-sm);
+  background: var(--bg); color: var(--ink);
+  overflow-y: auto; overscroll-behavior: contain;
+}
+.lead-dlg[open] { animation: dlg-in var(--dur-long) var(--ease-out); }
+@keyframes dlg-in { from { opacity: 0; transform: translateY(1rem); } }
+.lead-dlg::backdrop {
+  background: color-mix(in oklch, var(--photo-base) 72%, transparent);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.lead-dlg__in { position: relative; display: grid; gap: var(--space-lg); padding: clamp(var(--space-lg), 4vw, var(--space-xl)); }
+.lead-dlg__close { position: absolute; top: var(--space-sm); right: var(--space-sm); }
+.lead-dlg__title {
+  padding-right: 3rem;
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700;
+  font-size: clamp(1.5rem, 1.15rem + 1.1vw, 2rem);
+  line-height: 1.05; text-transform: uppercase;
+  overflow-wrap: anywhere; min-width: 0;
+}
+.lead-dlg__lead { margin-top: calc(var(--space-sm) * -1); color: var(--muted); max-width: 40ch; }
+.lead-dlg .form, .lead-dlg .form__row { gap: var(--space-md); }
+.lead-dlg .form__row { grid-template-columns: minmax(0, 1fr); }
+.lead-dlg .done { padding: 0; border: 0; background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* ── Панель вариантов (прототип, на сайте не будет) ─────── */
+.vpanel {
+  position: fixed;
+  left: var(--space-sm);
+  bottom: calc(var(--mbar-h) + var(--space-sm) + env(safe-area-inset-bottom));
+  z-index: var(--z-dropdown);
+  display: flex; flex-direction: column-reverse; align-items: flex-start; gap: var(--space-xs);
+  max-width: calc(100vw - 2 * var(--space-sm));
+  font-family: var(--font-body);
+  color: var(--vp-ink);
+}
+.vpanel__toggle, .vpanel__body {
+  background: var(--vp-bg);
+  -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
+  border: var(--rule-w) solid var(--vp-rule);
+  box-shadow: 0 0.75rem 2.5rem -0.75rem var(--vp-shadow);
+}
+.vpanel__toggle {
+  display: inline-flex; align-items: center; gap: 0.6em;
+  min-height: 2.75rem; padding: 0 1.1rem;
+  border-radius: var(--radius-pill);
+  color: inherit;
+  font-size: 0.9375rem; font-weight: 600; white-space: nowrap;
+}
+.vpanel__toggle:hover { border-color: var(--vp-ink); }
+@media (max-width: 47.99rem) { .vpanel__more { display: none; } }
+.vpanel__dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--accent); flex: none; }
+.vpanel__chev {
+  width: 0.5rem; height: 0.5rem; margin-left: 0.15rem;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: translateY(2px) rotate(-135deg);
+  transition: transform var(--dur-short) var(--ease-out);
+}
+.vpanel__toggle[aria-expanded="true"] .vpanel__chev { transform: translateY(-2px) rotate(45deg); }
+.vpanel__body {
+  width: min(24rem, calc(100vw - 2 * var(--space-sm)));
+  max-height: min(68svh, 36rem); overflow-y: auto; overscroll-behavior: contain;
+  display: grid; gap: var(--space-md);
+  padding: var(--space-md);
+  border-radius: 14px;
+}
+.vpanel__hint { font-size: 0.875rem; line-height: 1.45; color: var(--vp-muted); }
+.vpanel__label { margin-bottom: var(--space-xs); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--vp-muted); }
+.vpanel__opts { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+.vpanel__opts button {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  min-height: 2.5rem; padding: 0 0.875rem;
+  border: var(--rule-w) solid var(--vp-rule); border-radius: var(--radius-pill);
+  background: transparent; color: var(--vp-ink);
+  font-size: 0.9375rem; font-weight: 500; line-height: 1.15; text-align: left;
+}
+.vpanel__opts button:hover { border-color: var(--vp-ink); }
+.vpanel__opts button[aria-pressed="true"] { background: var(--vp-ink); color: var(--vp-on); border-color: var(--vp-ink); }
+.vpanel__opts button:focus-visible, .vpanel__toggle:focus-visible { outline: 2px solid var(--vp-ink); outline-offset: 2px; }
+.vpanel [data-set="palette"]::before { content: ""; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--sw); flex: none; }
+.vpanel [data-val="red"] { --sw: var(--swatch-red); }
+.vpanel [data-val="gold"] { --sw: var(--swatch-gold); }
+.vpanel [data-val="light"] { --sw: var(--swatch-light); }
+@media (min-width: 48rem) {
+  .vpanel { left: var(--space-md); bottom: var(--space-md); }
+}
+
+/* ── Меньше движения ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 150ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 150ms !important;
+  }
+  .hero__video { display: none; }
+  .marquee__track { animation: none !important; width: auto; }
+  .marquee__list { flex-wrap: wrap; white-space: normal; padding-inline: var(--gutter); font-size: clamp(1.5rem, 1rem + 2.4vw, 3rem); row-gap: 0.2em; }
+  .marquee__list[aria-hidden="true"] { display: none; }
+  .trust__track { animation: none !important; width: auto; justify-content: center; }
+  .trust__list { flex-wrap: wrap; justify-content: center; white-space: normal; padding-inline: var(--gutter); row-gap: var(--space-sm); }
+  .trust__list[aria-hidden="true"], .trust__row--back { display: none; }
+  .menu[open], .menu.is-closing { animation-name: fade-only; }
+  @keyframes fade-only { from { opacity: 0; } }
+  .tile:hover img, .tile:focus-visible img { transform: none; }
+  .pill:active { transform: none; }
+  .consent input::after { transition: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-tg" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+  <symbol id="i-vk" viewBox="0 0 24 24"><path d="m9.489.004.729-.003h3.564l.73.003.914.01.433.007.418.011.403.014.388.016.374.021.36.025.345.03.333.033c1.74.196 2.933.616 3.833 1.516.9.9 1.32 2.092 1.516 3.833l.034.333.029.346.025.36.02.373.025.588.012.41.013.644.009.915.004.98-.001 3.313-.003.73-.01.914-.007.433-.011.418-.014.403-.016.388-.021.374-.025.36-.03.345-.033.333c-.196 1.74-.616 2.933-1.516 3.833-.9.9-2.092 1.32-3.833 1.516l-.333.034-.346.029-.36.025-.373.02-.588.025-.41.012-.644.013-.915.009-.98.004-3.313-.001-.73-.003-.914-.01-.433-.007-.418-.011-.403-.014-.388-.016-.374-.021-.36-.025-.345-.03-.333-.033c-1.74-.196-2.933-.616-3.833-1.516-.9-.9-1.32-2.092-1.516-3.833l-.034-.333-.029-.346-.025-.36-.02-.373-.025-.588-.012-.41-.013-.644-.009-.915-.004-.98.001-3.313.003-.73.01-.914.007-.433.011-.418.014-.403.016-.388.021-.374.025-.36.03-.345.033-.333c.196-1.74.616-2.933 1.516-3.833.9-.9 2.092-1.32 3.833-1.516l.333-.034.346-.029.36-.025.373-.02.588-.025.41-.012.644-.013.915-.009ZM6.79 7.3H4.05c.13 6.24 3.25 9.99 8.72 9.99h.31v-3.57c2.01.2 3.53 1.67 4.14 3.57h2.84c-.78-2.84-2.83-4.41-4.11-5.01 1.28-.74 3.08-2.54 3.51-4.98h-2.58c-.56 1.98-2.22 3.78-3.8 3.95V7.3H10.5v6.92c-1.6-.4-3.62-2.34-3.71-6.92Z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-contact" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0Z"/></symbol>
+</svg>
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="#top" aria-label="Live Love Joy — на главную">
+      <span class="brand__mark">LIVE LOVE JOY</span>
+      <span class="brand__sub">event agency</span>
+    </a>
+    <div class="hdr__actions">
+            <a class="icon-btn" href="#" aria-label="Instagram — адрес уточняем"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg></a>
+      <div class="hdr__tablet">
+        <a class="hdr__phone" href="tel:+79055474281">+7 905 547-42-81</a>
+        <a class="pill pill--solid pill--sm" href="#contacts" data-lead>Обсудить событие</a>
+      </div>
+      <button class="icon-btn burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>
+        <span class="burger__lines" aria-hidden="true"></span>
+        <span class="sr-only">Открыть меню</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<dialog class="menu band--dark" id="menu" aria-label="Меню">
+  <div class="wrap menu__top">
+    <a class="brand" href="#top" data-menu-link>
+      <span class="brand__mark">LIVE LOVE JOY</span>
+      <span class="brand__sub">event agency</span>
+    </a>
+    <button class="icon-btn menu__close" type="button" data-menu-close><span class="sr-only">Закрыть меню</span></button>
+  </div>
+  <nav class="wrap menu__nav" aria-label="Разделы сайта">
+    <ul class="menu__words">
+      <li><a class="menu__big" href="#live" data-menu-link><span class="menu__word"><span class="w-en">LIVE</span><span class="w-ru">ЖИВИ</span></span><span class="menu__ru">Городские</span></a></li>
+      <li><a class="menu__big" href="#love" data-menu-link><span class="menu__word"><span class="w-en">LOVE</span><span class="w-ru">ЛЮБИ</span></span><span class="menu__ru">Частные</span></a></li>
+      <li><a class="menu__big" href="#joy" data-menu-link><span class="menu__word"><span class="w-en">JOY</span><span class="w-ru">РАДУЙСЯ</span></span><span class="menu__ru">Корпоративные</span></a></li>
+    </ul>
+    <ul class="menu__more">
+      <li><a href="#vidy" data-menu-link>Виды мероприятий</a></li>
+      <li><a href="#projects" data-menu-link>Проекты</a></li>
+      <li><a href="#zhurnal" data-menu-link>Журнал</a></li>
+      <li><a href="#contacts" data-menu-link>Контакты</a></li>
+    </ul>
+  </nav>
+  <div class="wrap menu__bottom">
+    <a class="pill pill--line pill--sm" href="#"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a>
+    <a class="pill pill--line pill--sm" href="https://t.me/OlgaBilyk77"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg>Telegram</a>
+    <a class="pill pill--solid pill--sm" href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0D%0AVERSION%3A3.0%0D%0AN%3A%3BLive%20Love%20Joy%3B%3B%3B%0D%0AFN%3A%D0%9E%D0%BB%D1%8C%D0%B3%D0%B0%20%E2%80%94%20Live%20Love%20Joy%0D%0AORG%3ALive%20Love%20Joy%20%E2%80%94%20event%20agency%0D%0ATITLE%3A%D0%98%D0%B2%D0%B5%D0%BD%D1%82-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%81%D1%82%D0%B2%D0%BE%0D%0ATEL%3BTYPE%3DCELL%3A%2B79055474281%0D%0AEMAIL%3BTYPE%3DINTERNET%3Ahello%40livelovejoy.ru%0D%0AURL%3Ahttps%3A%2F%2Flivelovejoy.ru%0D%0ANOTE%3A%D0%93%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D0%BA%D0%B8%D0%B5%20%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D0%BA%D0%B8%5C%2C%20%D1%87%D0%B0%D1%81%D1%82%D0%BD%D1%8B%D0%B5%20%D1%82%D0%BE%D1%80%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20%D0%B8%20%D0%BA%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B5%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F%20%E2%80%94%20%D0%BE%D1%82%20%D0%B8%D0%B4%D0%B5%D0%B8%20%D0%B4%D0%BE%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BD%D0%B5%D0%B3%D0%BE%20%D0%B3%D0%BE%D1%81%D1%82%D1%8F%0D%0AEND%3AVCARD%0D%0A" download="live-love-joy.vcf"><svg class="ic ic--line" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-contact"/></svg>Сохранить контакт</a>
+  </div>
+</dialog>
+
+<main id="main">
+
+<section class="hero band--photo" id="top" aria-labelledby="hero-title">
+  <picture class="media"><source media="(max-width: 47.99rem)" srcset="https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=640&amp;h=1138&amp;fit=crop&amp;q=65&amp;auto=format 640w, https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=900&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 900w, https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=1080&amp;h=1920&amp;fit=crop&amp;q=65&amp;auto=format 1080w" sizes="100vw" width="1080" height="1920"><img src="https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format" srcset="https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=1280&amp;h=800&amp;fit=crop&amp;q=65&amp;auto=format 1280w, https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format 1920w, https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=2560&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 2560w" sizes="100vw" width="1920" height="1200" alt="Концертный зал: зрители в партере, сцена в тёплом свете прожекторов" fetchpriority="high" decoding="async"></picture>
+    <video class="media hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="https://assets.mixkit.co/videos/48509/48509-720.mp4" data-src-sm="https://assets.mixkit.co/videos/48509/48509-360.mp4"></video>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="wrap hero__in">
+    <p class="label hero__kicker"><span class="label__dot" aria-hidden="true">●</span>&nbsp; Ивент-агентство&nbsp;·&nbsp;Москва</p>
+    <div class="hero__title">
+      <h1 class="sr-only" id="hero-title">Live Love Joy — ивент-агентство в Москве</h1>
+      <span class="sign" aria-hidden="true"><span>LIVE</span> <span>LOVE</span> <span>JOY</span></span>
+      <p class="hero__motto"><span>Живи</span> <i aria-hidden="true">·</i> <span>люби</span> <i aria-hidden="true">·</i> <span>радуйся</span></p>
+    </div>
+    <div class="hero__row">
+      <div>
+        <nav class="segments" aria-label="Виды мероприятий">
+          <a href="#live">Городские</a><span class="segments__sep" aria-hidden="true">|</span><a href="#love">Частные</a><span class="segments__sep" aria-hidden="true">|</span><a href="#joy">Корпоративные</a>
+        </nav>
+        <p class="hero__tagline">Больше 10&nbsp;лет организуем события&nbsp;— от&nbsp;идеи до&nbsp;последнего&nbsp;гостя</p>
+      </div>
+      <div class="hero__cta">
+        <a class="pill pill--solid" href="#contacts" data-lead>Обсудить событие</a>
+        <a class="pill pill--line" href="#projects">Проекты</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="motto band band--dark" aria-label="Живи, люби, радуйся">
+  <div class="wrap motto__in">
+    <p class="motto__line"><span>Живи<i>.</i></span> <span>Люби<i>.</i></span> <span>Радуйся<i>.</i></span></p>
+  </div>
+</section>
+
+<section class="marquee band band--dark" aria-label="Живи, люби, радуйся">
+  <div class="marquee__track">
+    <ul class="marquee__list">
+      <li>Живи</li><li aria-hidden="true"><svg class="marquee__star" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></li><li>Люби</li><li aria-hidden="true"><svg class="marquee__star" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></li><li>Радуйся</li><li aria-hidden="true"><svg class="marquee__star" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></li><li>Живи</li><li aria-hidden="true"><svg class="marquee__star" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></li><li>Люби</li><li aria-hidden="true"><svg class="marquee__star" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></li><li>Радуйся</li><li aria-hidden="true"><svg class="marquee__star" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></li>
+    </ul>
+    <ul class="marquee__list" aria-hidden="true">
+      <li>Живи</li><li aria-hidden="true"><svg class="marquee__star" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></li><li>Люби</li><li aria-hidden="true"><svg class="marquee__star" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></li><li>Радуйся</li><li aria-hidden="true"><svg class="marquee__star" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></li><li>Живи</li><li aria-hidden="true"><svg class="marquee__star" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></li><li>Люби</li><li aria-hidden="true"><svg class="marquee__star" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></li><li>Радуйся</li><li aria-hidden="true"><svg class="marquee__star" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></li>
+    </ul>
+  </div>
+</section>
+
+<section class="about band band--light" id="about" aria-labelledby="about-title">
+  <div class="wrap about__grid">
+    <div>
+      <h2 class="manifesto" id="about-title">
+        <span class="manifesto__line">Агентство <em>Ольги</em><span class="manifesto__dot">.</span></span>
+      </h2>
+      <p class="about__lead"><strong>Ольга</strong> начинала с&nbsp;детских праздников, потом были городские фестивали и&nbsp;год в&nbsp;«Зарядье», а&nbsp;сейчас&nbsp;— ещё частные и&nbsp;корпоративные события.</p>
+      <p class="about__lead"><strong>Live Love Joy</strong> берёт проект целиком: идея, сценарий, площадка, артисты, декор и&nbsp;сам день праздника. Вам не&nbsp;нужно искать и&nbsp;сводить подрядчиков&nbsp;— это наша работа.</p>
+    </div>
+    <ul class="facts" aria-label="Факты об агентстве">
+      <li class="fact"><span class="fact__num">10+</span><span class="fact__cap">лет в&nbsp;организации событий</span></li>
+      <li class="fact"><span class="fact__num">Год</span><span class="fact__cap">праздников и&nbsp;концертов в&nbsp;«Зарядье»</span></li>
+      <li class="fact"><span class="fact__num">3</span><span class="fact__cap">вида событий: городские, частные и&nbsp;корпоративные</span></li>
+      <li class="fact"><span class="fact__num">1</span><span class="fact__cap">организатор на&nbsp;связи&nbsp;— от&nbsp;первой встречи до&nbsp;финала</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="types band band--dark" id="vidy" aria-labelledby="types-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="types-title">Виды мероприятий</h2>
+    </div>
+    <ol class="types__list">
+      <li><a class="type" href="#live"><span class="type__num">(01)</span><span class="type__name">Городские</span><span class="type__text">Праздники по&nbsp;городскому календарю, фестивали, концерты и&nbsp;форумы.</span><span class="type__go">Подробнее <span class="type__arr" aria-hidden="true">→</span></span></a></li>
+      <li><a class="type" href="#love"><span class="type__num">(02)</span><span class="type__name">Частные</span><span class="type__text">Дни рождения, юбилеи и&nbsp;детские праздники для&nbsp;вас и&nbsp;ваших близких.</span><span class="type__go">Подробнее <span class="type__arr" aria-hidden="true">→</span></span></a></li>
+      <li><a class="type" href="#joy"><span class="type__num">(03)</span><span class="type__name">Корпоративные</span><span class="type__text">Корпоративы, клиентские вечера и&nbsp;конференции для&nbsp;компаний.</span><span class="type__go">Подробнее <span class="type__arr" aria-hidden="true">→</span></span></a></li>
+    </ol>
+    <p class="types__note">Названия рабочие: Ольга пришлёт свой список разделов, и&nbsp;мы&nbsp;поставим его сюда.</p>
+  </div>
+</section>
+
+<section class="scene scene--live band--photo" id="live" aria-labelledby="live-title">
+  <picture class="media"><source media="(max-width: 47.99rem)" srcset="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=640&amp;h=1138&amp;fit=crop&amp;q=65&amp;auto=format 640w, https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=900&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 900w, https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1080&amp;h=1920&amp;fit=crop&amp;q=65&amp;auto=format 1080w" sizes="100vw" width="1080" height="1920"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format" srcset="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1280&amp;h=800&amp;fit=crop&amp;q=65&amp;auto=format 1280w, https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format 1920w, https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=2560&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 2560w" sizes="100vw" width="1920" height="1200" alt="Концерт под открытым небом: толпа перед сценой в оранжевом свете" loading="lazy" decoding="async"></picture>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="wrap scene__in">
+    <p class="label">(01)&nbsp;<span class="label__dot">●</span>&nbsp;Виды мероприятий</p>
+    <h2 class="scene__title" id="live-title"><span class="scene__word"><span class="w-en">LIVE</span><span class="w-ru">ЖИВИ</span></span><span class="scene__sub">Городские события</span></h2>
+    <p class="scene__text">Фестивали, концерты и&nbsp;городские праздники. В&nbsp;«Зарядье» мы&nbsp;выиграли тендер на&nbsp;первый год работы парка и&nbsp;провели весь календарь: 1&nbsp;и&nbsp;9&nbsp;Мая, День России, День города, День народного единства, Новый год&nbsp;— и&nbsp;концерты каждую неделю.</p>
+    <ul class="chips" aria-label="Форматы">
+      <li class="chip">Городские праздники</li>
+      <li class="chip">Фестивали</li>
+      <li class="chip">Концерты</li>
+      <li class="chip">Форумы</li>
+    </ul>
+    <a class="go" href="#projects">Смотреть проекты <span class="go__arr" aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<section class="love band band--light" id="love" aria-labelledby="love-title">
+  <div class="wrap love__in">
+    <p class="label">(02)&nbsp;<span class="label__dot">●</span>&nbsp;Виды мероприятий</p>
+    <h2 class="scene__title" id="love-title"><span class="scene__word"><span class="w-en">LOVE</span><span class="w-ru">ЛЮБИ</span></span><span class="scene__sub">Частные праздники</span></h2>
+    <div class="love__grid">
+      <div class="love__text">
+        <p class="scene__text">Дни рождения, юбилеи и&nbsp;детские праздники. Начинаем с&nbsp;разговора о&nbsp;людях: кто придёт, что они любят, каким должен запомниться этот день. Площадку, цветы, программу и&nbsp;ведущего берём на&nbsp;себя.</p>
+        <ul class="chips" aria-label="Форматы">
+          <li class="chip">Дни рождения</li>
+          <li class="chip">Юбилеи</li>
+          <li class="chip">Детские праздники</li>
+        </ul>
+        <a class="go" href="#projects">Смотреть проекты <span class="go__arr" aria-hidden="true">→</span></a>
+      </div>
+      <div class="collage">
+        <figure class="collage__item collage__a"><img src="https://images.unsplash.com/photo-1782038523014-831222a83f32?w=720&amp;h=900&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.58&amp;fp-y=0.5" srcset="https://images.unsplash.com/photo-1782038523014-831222a83f32?w=480&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.58&amp;fp-y=0.5 480w, https://images.unsplash.com/photo-1782038523014-831222a83f32?w=720&amp;h=900&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.58&amp;fp-y=0.5 720w, https://images.unsplash.com/photo-1782038523014-831222a83f32?w=960&amp;h=1200&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.58&amp;fp-y=0.5 960w" sizes="(min-width: 60rem) 31vw, 61vw" width="720" height="900" alt="Праздничный стол в саду: гости, белая скатерть и розовые цветы" loading="lazy" decoding="async"></figure>
+        <figure class="collage__item collage__b"><img src="https://images.unsplash.com/photo-1784706958675-9b53c92a85d8?w=480&amp;h=480&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.27&amp;fp-y=0.55" srcset="https://images.unsplash.com/photo-1784706958675-9b53c92a85d8?w=320&amp;h=320&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.27&amp;fp-y=0.55 320w, https://images.unsplash.com/photo-1784706958675-9b53c92a85d8?w=480&amp;h=480&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.27&amp;fp-y=0.55 480w, https://images.unsplash.com/photo-1784706958675-9b53c92a85d8?w=720&amp;h=720&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.27&amp;fp-y=0.55 720w" sizes="(min-width: 60rem) 18vw, 35vw" width="480" height="480" alt="Розовые пионы в стеклянной вазе" loading="lazy" decoding="async"></figure>
+        <p class="collage__cap" aria-hidden="true">Цветы, свет, сервировка</p>
+        <figure class="collage__item collage__c"><img src="https://images.unsplash.com/photo-1627764927037-a4c3b80b6bb7?w=640&amp;h=480&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1627764927037-a4c3b80b6bb7?w=400&amp;h=300&amp;fit=crop&amp;q=70&amp;auto=format 400w, https://images.unsplash.com/photo-1627764927037-a4c3b80b6bb7?w=640&amp;h=480&amp;fit=crop&amp;q=70&amp;auto=format 640w, https://images.unsplash.com/photo-1627764927037-a4c3b80b6bb7?w=880&amp;h=660&amp;fit=crop&amp;q=70&amp;auto=format 880w" sizes="(min-width: 60rem) 23vw, 45vw" width="640" height="480" alt="Дети играют с воздушными шарами на лужайке" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene scene--joy band--photo" id="joy" aria-labelledby="joy-title">
+  <picture class="media"><source media="(max-width: 47.99rem)" srcset="https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=640&amp;h=1138&amp;fit=crop&amp;q=65&amp;auto=format 640w, https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=900&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 900w, https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=1080&amp;h=1920&amp;fit=crop&amp;q=65&amp;auto=format 1080w" sizes="100vw" width="1080" height="1920"><img src="https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format" srcset="https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=1280&amp;h=800&amp;fit=crop&amp;q=65&amp;auto=format 1280w, https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format 1920w, https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=2560&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 2560w" sizes="100vw" width="1920" height="1200" alt="Вечеринка: гости в вечерних нарядах танцуют под сценическим светом" loading="lazy" decoding="async"></picture>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="wrap scene__in">
+    <p class="label">(03)&nbsp;<span class="label__dot">●</span>&nbsp;Виды мероприятий</p>
+    <h2 class="scene__title" id="joy-title"><span class="scene__word"><span class="w-en">JOY</span><span class="w-ru">РАДУЙСЯ</span></span><span class="scene__sub">Корпоративные события</span></h2>
+    <p class="scene__text">Корпоративы, клиентские вечера и&nbsp;конференции. Площадку, программу, артистов и&nbsp;всех подрядчиков берём на&nbsp;себя&nbsp;— вам останется согласовать смету и&nbsp;прийти на&nbsp;событие вместе со&nbsp;всеми.</p>
+    <ul class="chips" aria-label="Форматы">
+      <li class="chip">Корпоративы</li>
+      <li class="chip">Клиентские вечера</li>
+      <li class="chip">Конференции</li>
+    </ul>
+    <a class="go" href="#projects">Смотреть проекты <span class="go__arr" aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<section class="works band band--dark" id="services" aria-labelledby="works-title">
+  <div class="wrap works__grid">
+    <figure class="works__media">
+      <img src="https://images.unsplash.com/photo-1727096857692-e9dadf2bc92e?w=960&amp;h=1200&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1727096857692-e9dadf2bc92e?w=480&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format 480w, https://images.unsplash.com/photo-1727096857692-e9dadf2bc92e?w=720&amp;h=900&amp;fit=crop&amp;q=70&amp;auto=format 720w, https://images.unsplash.com/photo-1727096857692-e9dadf2bc92e?w=960&amp;h=1200&amp;fit=crop&amp;q=70&amp;auto=format 960w, https://images.unsplash.com/photo-1727096857692-e9dadf2bc92e?w=1200&amp;h=1500&amp;fit=crop&amp;q=70&amp;auto=format 1200w" sizes="(min-width: 60rem) 38vw, 100vw" width="960" height="1200" alt="Сценический свет и фермы над площадкой — место для ролика агентства" loading="lazy" decoding="async">
+      <figcaption class="works__note">Здесь будет ролик с&nbsp;событий Ольги</figcaption>
+    </figure>
+    <div>
+      <h2 class="h2" id="works-title">Что мы делаем</h2>
+      <p class="works__lead">Семь задач, которые мы&nbsp;снимаем с&nbsp;вас,&nbsp;— от&nbsp;первой идеи до&nbsp;координации в&nbsp;день события.</p>
+      <ol class="steps">
+        <li class="step"><span class="step__num">01</span><span class="step__title">Концепция и&nbsp;режиссура</span><span class="step__text">Придумываем, о&nbsp;чём будет событие, и&nbsp;расписываем его по&nbsp;минутам: встреча гостей, главные моменты, финал.</span></li>
+        <li class="step"><span class="step__num">02</span><span class="step__title">Сценарий, ведущие и&nbsp;артисты</span><span class="step__text">Подбираем ведущего, музыкантов и&nbsp;шоу под ваших гостей: детскому празднику и&nbsp;корпоративу нужны разные люди на&nbsp;сцене.</span></li>
+        <li class="step"><span class="step__num">03</span><span class="step__title">Декор и&nbsp;оформление</span><span class="step__text">Цветы, сервировка, текстиль, свет и&nbsp;неоновые надписи&nbsp;— оформление вокруг одной идеи.</span></li>
+        <li class="step"><span class="step__num">04</span><span class="step__title">Сцена, свет и&nbsp;звук</span><span class="step__text">Техническую часть ведём вместе с&nbsp;подрядчиками: оборудование, монтаж, репетиции, тайминг.</span></li>
+        <li class="step"><span class="step__num">05</span><span class="step__title">Площадка и&nbsp;кейтеринг</span><span class="step__text">Подбираем место под формат, число гостей и&nbsp;бюджет. Согласуем меню, подачу и&nbsp;работу официантов.</span></li>
+        <li class="step"><span class="step__num">06</span><span class="step__title">Фото и&nbsp;видео</span><span class="step__text">Фотограф, видеограф и&nbsp;короткий ролик о&nbsp;главных моментах&nbsp;— чтобы событие можно было пересмотреть.</span></li>
+        <li class="step"><span class="step__num">07</span><span class="step__title">Координация в&nbsp;день события</span><span class="step__text">Держим тайминг и&nbsp;всех подрядчиков на&nbsp;площадке. Решаем вопросы раньше, чем их&nbsp;заметят гости.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+<section class="projects band band--light" id="projects" aria-labelledby="projects-title">
+  <div class="wrap sec-head sec-head--row">
+    <h2 class="h2" id="projects-title">Проекты</h2>
+    <a class="go" href="#vse-proekty">Все проекты <span class="go__arr" aria-hidden="true">→</span></a>
+  </div>
+    <ul class="tiles">
+    <li><a class="tile" href="#proekt-zaryadye"><img src="https://images.unsplash.com/photo-1619973226698-b77a5b5dd14b?w=1280&amp;h=800&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1619973226698-b77a5b5dd14b?w=640&amp;h=400&amp;fit=crop&amp;q=70&amp;auto=format 640w, https://images.unsplash.com/photo-1619973226698-b77a5b5dd14b?w=960&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format 960w, https://images.unsplash.com/photo-1619973226698-b77a5b5dd14b?w=1280&amp;h=800&amp;fit=crop&amp;q=70&amp;auto=format 1280w, https://images.unsplash.com/photo-1619973226698-b77a5b5dd14b?w=1600&amp;h=1000&amp;fit=crop&amp;q=70&amp;auto=format 1600w" sizes="(min-width: 48rem) 50vw, 100vw" width="1280" height="800" alt="" loading="lazy" decoding="async"><span class="tile__body"><span class="tile__meta">Городские</span><span class="tile__title">Зарядье. Год праздников</span><span class="tile__text">Первый год работы парка: праздники по&nbsp;календарю и&nbsp;концерты каждую неделю.</span></span></a></li>
+    <li><a class="tile" href="#proekt-elizaveta-18"><img src="https://images.unsplash.com/photo-1536392706976-e486e2ba97af?w=1280&amp;h=800&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1536392706976-e486e2ba97af?w=640&amp;h=400&amp;fit=crop&amp;q=70&amp;auto=format 640w, https://images.unsplash.com/photo-1536392706976-e486e2ba97af?w=960&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format 960w, https://images.unsplash.com/photo-1536392706976-e486e2ba97af?w=1280&amp;h=800&amp;fit=crop&amp;q=70&amp;auto=format 1280w, https://images.unsplash.com/photo-1536392706976-e486e2ba97af?w=1600&amp;h=1000&amp;fit=crop&amp;q=70&amp;auto=format 1600w" sizes="(min-width: 48rem) 50vw, 100vw" width="1280" height="800" alt="" loading="lazy" decoding="async"><span class="tile__body"><span class="tile__meta">Частные</span><span class="tile__title">Елизавета 18</span><span class="tile__text">День рождения: зелёно-розовый декор, шторы и&nbsp;неоновая надпись.</span></span></a></li>
+    <li class="tiles__wide"><a class="tile tile--cta" href="#contacts" data-lead data-type="Корпоративное"><img src="https://images.unsplash.com/photo-1768508950719-4d76978fdf44?w=1600&amp;h=1000&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1768508950719-4d76978fdf44?w=960&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format 960w, https://images.unsplash.com/photo-1768508950719-4d76978fdf44?w=1600&amp;h=1000&amp;fit=crop&amp;q=70&amp;auto=format 1600w, https://images.unsplash.com/photo-1768508950719-4d76978fdf44?w=2240&amp;h=1400&amp;fit=crop&amp;q=70&amp;auto=format 2240w" sizes="100vw" width="1600" height="1000" alt="" loading="lazy" decoding="async"><span class="tile__body"><span class="tile__meta">Корпоративные</span><span class="tile__title">Ваш корпоратив</span><span class="tile__text">Пришлите повод, дату и&nbsp;число гостей&nbsp;— предложим идею и&nbsp;посчитаем смету.</span><span class="pill pill--solid pill--sm tile__pill">Обсудить задачу</span></span></a></li>
+  </ul>
+  <p class="wrap projects__note">Фото на&nbsp;карточках&nbsp;— референсы, не&nbsp;съёмки проектов. Настоящие фото и&nbsp;истории добавим, когда Ольга их&nbsp;пришлёт.</p>
+</section>
+
+<section class="trust band band--dark" id="trust" aria-labelledby="trust-title">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="test-logo" viewBox="0 0 230 64"><circle cx="32" cy="32" r="28" fill="currentColor"/><path d="M32 12 44 40H20z" fill="var(--bg)"/><path d="M32 30 40 48H24z" fill="currentColor" stroke="var(--bg)" stroke-width="3"/><text x="72" y="34" fill="currentColor" font-family="var(--font-display)" font-weight="800" font-size="24" letter-spacing=".04em">СЕВЕРА</text><text x="73" y="52" fill="currentColor" font-family="var(--font-body, sans-serif)" font-weight="500" font-size="11" letter-spacing=".14em" opacity=".75">ГРУППА КОМПАНИЙ</text></symbol></svg>
+  <div class="wrap"><h2 class="h2 trust__title" id="trust-title">Нам доверяют</h2></div>
+  <div class="trust__rows">
+    <div class="trust__row">
+      <div class="trust__track">
+        <ul class="trust__list"><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li></ul>
+        <ul class="trust__list" aria-hidden="true"><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li></ul>
+      </div>
+    </div>
+    <div class="trust__row trust__row--back" aria-hidden="true">
+      <div class="trust__track">
+        <ul class="trust__list"><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li></ul>
+        <ul class="trust__list" aria-hidden="true"><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li><li class="trust__item"><svg class="trust__logo" viewBox="0 0 230 64" role="img" aria-label="Северная группа (тестовый логотип)"><use href="#test-logo"/></svg></li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pause band--photo" aria-labelledby="pause-line">
+  <picture class="media"><source media="(max-width: 47.99rem)" srcset="https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=640&amp;h=1138&amp;fit=crop&amp;q=65&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.46&amp;fp-y=0.5 640w, https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=900&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.46&amp;fp-y=0.5 900w, https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=1080&amp;h=1920&amp;fit=crop&amp;q=65&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.46&amp;fp-y=0.5 1080w" sizes="100vw" width="1080" height="1920"><img src="https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format" srcset="https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=1280&amp;h=800&amp;fit=crop&amp;q=65&amp;auto=format 1280w, https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format 1920w, https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=2560&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 2560w" sizes="100vw" width="1920" height="1200" alt="Салют над вечерним городом" loading="lazy" decoding="async"></picture>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="pause__line" id="pause-line">Вы празднуете. Мы&nbsp;работаем<span class="label__dot">.</span></p>
+  </div>
+</section>
+
+<section class="journal band band--dark" id="zhurnal" aria-labelledby="journal-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--row">
+      <h2 class="h2" id="journal-title">Журнал</h2>
+      <p class="sec-head__note">Ответы на&nbsp;вопросы, с&nbsp;которых начинается любое событие.</p>
+    </div>
+    <ul class="posts">
+      <li><a class="post" href="#zhurnal-1"><span class="post__img"><img src="https://images.unsplash.com/photo-1768508949921-9ef52e81bf1b?w=800&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1768508949921-9ef52e81bf1b?w=480&amp;h=360&amp;fit=crop&amp;q=70&amp;auto=format 480w, https://images.unsplash.com/photo-1768508949921-9ef52e81bf1b?w=800&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format 800w, https://images.unsplash.com/photo-1768508949921-9ef52e81bf1b?w=1120&amp;h=840&amp;fit=crop&amp;q=70&amp;auto=format 1120w" sizes="(min-width: 48rem) 31vw, 100vw" width="800" height="600" alt="" loading="lazy" decoding="async"></span><span class="post__meta">Компаниям</span><span class="post__title">Корпоратив поручили вам: с&nbsp;чего начать</span><span class="post__text">План для тех, кто впервые собирает праздник для коллег.</span><span class="go">Читать <span class="go__arr" aria-hidden="true">→</span></span></a></li>
+      <li><a class="post" href="#zhurnal-2"><span class="post__img"><img src="https://images.unsplash.com/photo-1692158962133-6c97ee651ab9?w=800&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1692158962133-6c97ee651ab9?w=480&amp;h=360&amp;fit=crop&amp;q=70&amp;auto=format 480w, https://images.unsplash.com/photo-1692158962133-6c97ee651ab9?w=800&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format 800w, https://images.unsplash.com/photo-1692158962133-6c97ee651ab9?w=1120&amp;h=840&amp;fit=crop&amp;q=70&amp;auto=format 1120w" sizes="(min-width: 48rem) 31vw, 100vw" width="800" height="600" alt="" loading="lazy" decoding="async"></span><span class="post__meta">Подготовка</span><span class="post__title">Что рассказать организатору на&nbsp;первой встрече</span><span class="post__text">Повод, гости, дата, бюджет&nbsp;— и&nbsp;что делать, если чего-то пока нет.</span><span class="go">Читать <span class="go__arr" aria-hidden="true">→</span></span></a></li>
+      <li><a class="post" href="#zhurnal-3"><span class="post__img"><img src="https://images.unsplash.com/photo-1531956531700-dc0ee0f1f9a5?w=800&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1531956531700-dc0ee0f1f9a5?w=480&amp;h=360&amp;fit=crop&amp;q=70&amp;auto=format 480w, https://images.unsplash.com/photo-1531956531700-dc0ee0f1f9a5?w=800&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format 800w, https://images.unsplash.com/photo-1531956531700-dc0ee0f1f9a5?w=1120&amp;h=840&amp;fit=crop&amp;q=70&amp;auto=format 1120w" sizes="(min-width: 48rem) 31vw, 100vw" width="800" height="600" alt="" loading="lazy" decoding="async"></span><span class="post__meta">Детям</span><span class="post__title">Детский праздник: что продумать заранее</span><span class="post__text">Возраст гостей, длительность программы и&nbsp;чем занять взрослых.</span><span class="go">Читать <span class="go__arr" aria-hidden="true">→</span></span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact band--photo" id="contacts" aria-labelledby="contact-title">
+  <picture class="media"><source media="(max-width: 47.99rem)" srcset="https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=640&amp;h=1138&amp;fit=crop&amp;q=65&amp;auto=format 640w, https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=900&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 900w, https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=1080&amp;h=1920&amp;fit=crop&amp;q=65&amp;auto=format 1080w" sizes="100vw" width="1080" height="1920"><img src="https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format" srcset="https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=1280&amp;h=800&amp;fit=crop&amp;q=65&amp;auto=format 1280w, https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format 1920w, https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=2560&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 2560w" sizes="100vw" width="1920" height="1200" alt="" loading="lazy" decoding="async"></picture>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="wrap contact__in">
+    <h2 class="contact__title" id="contact-title">Обсудим ваше событие?</h2>
+    <p class="contact__lead">Оставьте имя и&nbsp;телефон&nbsp;— Ольга перезвонит и&nbsp;расспросит о&nbsp;задумке. Хватит повода и&nbsp;примерной даты, остальное обсудим.</p>
+    <div class="contact__grid">
+            <div class="clinks">
+        <a class="clink" href="https://t.me/OlgaBilyk77"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg><span class="clink__v">Telegram</span><span class="clink__k">написать</span></a>
+        <a class="clink" href="https://wa.me/79055474281"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg><span class="clink__v">WhatsApp</span><span class="clink__k">написать</span></a>
+        <a class="clink" href="tel:+79055474281"><svg class="ic ic--line" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg><span class="clink__v">+7 905 547-42-81</span><span class="clink__k">позвонить</span></a>
+        <a class="clink" href="mailto:hello@livelovejoy.ru"><svg class="ic ic--line" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg><span class="clink__v">hello@livelovejoy.ru</span><span class="clink__k">почта</span></a>
+        <a class="clink" href="#" aria-label="Instagram — адрес уточняем"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg><span class="clink__v">Instagram*</span><span class="clink__k">подписаться</span></a>
+        <a class="pill pill--line" href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0D%0AVERSION%3A3.0%0D%0AN%3A%3BLive%20Love%20Joy%3B%3B%3B%0D%0AFN%3A%D0%9E%D0%BB%D1%8C%D0%B3%D0%B0%20%E2%80%94%20Live%20Love%20Joy%0D%0AORG%3ALive%20Love%20Joy%20%E2%80%94%20event%20agency%0D%0ATITLE%3A%D0%98%D0%B2%D0%B5%D0%BD%D1%82-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%81%D1%82%D0%B2%D0%BE%0D%0ATEL%3BTYPE%3DCELL%3A%2B79055474281%0D%0AEMAIL%3BTYPE%3DINTERNET%3Ahello%40livelovejoy.ru%0D%0AURL%3Ahttps%3A%2F%2Flivelovejoy.ru%0D%0ANOTE%3A%D0%93%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D0%BA%D0%B8%D0%B5%20%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D0%BA%D0%B8%5C%2C%20%D1%87%D0%B0%D1%81%D1%82%D0%BD%D1%8B%D0%B5%20%D1%82%D0%BE%D1%80%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20%D0%B8%20%D0%BA%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B5%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F%20%E2%80%94%20%D0%BE%D1%82%20%D0%B8%D0%B4%D0%B5%D0%B8%20%D0%B4%D0%BE%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BD%D0%B5%D0%B3%D0%BE%20%D0%B3%D0%BE%D1%81%D1%82%D1%8F%0D%0AEND%3AVCARD%0D%0A" download="live-love-joy.vcf"><svg class="ic ic--line" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-contact"/></svg>Сохранить контакт</a>
+        <p class="clinks__hint">Карточка .vcf сразу добавится в&nbsp;контакты телефона.</p>
+      </div>
+
+      <form class="form" id="lead-form" novalidate data-form>
+        <div class="form__row">
+          <div class="field" data-field="name">
+            <label class="field__label" for="f-name">Ваше имя</label>
+            <input class="input" id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err">
+            <p class="field__err" id="f-name-err" data-msg="Напишите имя&nbsp;— хотя&nbsp;бы две буквы."></p>
+          </div>
+          <div class="field" data-field="phone">
+            <label class="field__label" for="f-phone">Ваш телефон</label>
+            <input class="input" id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7" required aria-describedby="f-phone-err">
+            <p class="field__err" id="f-phone-err" data-msg="Телефон целиком, например +7&nbsp;905&nbsp;000-00-00"></p>
+          </div>
+        </div>
+        <div class="field" data-field="type">
+          <label class="field__label" for="f-type">Какое событие</label>
+          <div class="select">
+            <select id="f-type" name="type" required aria-describedby="f-type-err">
+              <option value="">Выберите</option>
+              <option>Городское</option>
+              <option>Частное</option>
+              <option>Корпоративное</option>
+              <option>Конференция или форум</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <p class="field__err" id="f-type-err" data-msg="Выберите, какое событие планируете"></p>
+        </div>
+        <div class="field" data-field="consent">
+          <label class="consent">
+            <input type="checkbox" name="consent" required aria-describedby="f-consent-err">
+            <span>Даю согласие на&nbsp;обработку персональных данных и&nbsp;принимаю <a href="#politika">политику конфиденциальности</a></span>
+          </label>
+          <p class="field__err" id="f-consent-err" data-msg="Нужно согласие на&nbsp;обработку данных"></p>
+        </div>
+        <div class="form__submit">
+          <button class="pill pill--accent" type="submit">Отправить заявку</button>
+          <p class="form__note">Прототип: форма никуда не&nbsp;отправляет данные</p>
+        </div>
+      </form>
+
+      <div class="done" data-done hidden tabindex="-1" aria-live="polite">
+        <p class="done__title">Заявка отправлена<span>.</span></p>
+        <p>Спасибо! Ольга свяжется с&nbsp;вами, чтобы обсудить задумку.</p>
+        <p class="form__note">Прототип: данные никуда не&nbsp;ушли.</p>
+        <button class="pill pill--line pill--sm" type="button" data-again>Заполнить ещё раз</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot band band--dark">
+  <div class="wrap">
+    <div class="foot__signwrap">
+      <p class="sign foot__sign" aria-hidden="true" style="--foot-photo: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1600&amp;h=1000&amp;fit=crop&amp;q=65&amp;auto=format')"><span>LIVE</span> <span>LOVE</span> <span>JOY</span></p>
+      <div class="foot__vsign" aria-hidden="true">
+        <video class="foot__video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1280&amp;h=800&amp;fit=crop&amp;q=65&amp;auto=format" data-src="https://assets.mixkit.co/videos/48510/48510-720.mp4"></video>
+        <p class="sign foot__vtext"><span>LIVE</span> <span>LOVE</span> <span>JOY</span></p>
+      </div>
+    </div>
+    <div class="foot__grid">
+      <nav class="foot__nav" aria-label="Разделы в подвале">
+        <a href="#live">Городские</a><a href="#love">Частные</a><a href="#joy">Корпоративные</a><a href="#projects">Проекты</a><a href="#zhurnal">Журнал</a><a href="#contacts">Контакты</a>
+      </nav>
+      <div class="foot__contacts">
+        <a href="tel:+79055474281">+7 905 547-42-81</a>
+        <a href="mailto:hello@livelovejoy.ru">hello@livelovejoy.ru</a>
+      </div>
+      <ul class="socials">
+        <li><a class="icon-btn" href="#" aria-label="Instagram — адрес уточняем"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg></a></li>
+      </ul>
+    </div>
+    <div class="foot__legal">
+      <a href="#politika">Политика конфиденциальности</a>
+      <span>© 2026 Live Love Joy</span>
+      <span>*Instagram принадлежит Meta, деятельность которой запрещена в&nbsp;РФ</span>
+      <span>Фото и&nbsp;видео&nbsp;— временные (Unsplash, Mixkit), заменим на&nbsp;съёмки Ольги</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Быстрая связь">
+  <a class="pill pill--solid" href="#contacts" data-lead>Обсудить</a>
+  <a class="pill pill--line" href="tel:+79055474281"><svg class="ic ic--line" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить</a>
+</nav>
+
+<dialog class="lead-dlg band--dark" id="lead-dlg" aria-labelledby="lead-title">
+  <div class="lead-dlg__in">
+    <button class="icon-btn menu__close lead-dlg__close" type="button" data-lead-close><span class="sr-only">Закрыть</span></button>
+    <h2 class="lead-dlg__title" id="lead-title">Обсудим ваше событие?</h2>
+    <p class="lead-dlg__lead">Оставьте имя и&nbsp;телефон&nbsp;— Ольга перезвонит и&nbsp;расспросит о&nbsp;задумке.</p>
+    <form class="form" novalidate data-form>
+        <div class="form__row">
+          <div class="field" data-field="name">
+            <label class="field__label" for="m-name">Ваше имя</label>
+            <input class="input" id="m-name" name="name" type="text" autocomplete="name" required aria-describedby="m-name-err">
+            <p class="field__err" id="m-name-err" data-msg="Напишите имя&nbsp;— хотя&nbsp;бы две буквы."></p>
+          </div>
+          <div class="field" data-field="phone">
+            <label class="field__label" for="m-phone">Ваш телефон</label>
+            <input class="input" id="m-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7" required aria-describedby="m-phone-err">
+            <p class="field__err" id="m-phone-err" data-msg="Телефон целиком, например +7&nbsp;905&nbsp;000-00-00"></p>
+          </div>
+        </div>
+        <div class="field" data-field="type">
+          <label class="field__label" for="m-type">Какое событие</label>
+          <div class="select">
+            <select id="m-type" name="type" required aria-describedby="m-type-err">
+              <option value="">Выберите</option>
+              <option>Городское</option>
+              <option>Частное</option>
+              <option>Корпоративное</option>
+              <option>Конференция или форум</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <p class="field__err" id="m-type-err" data-msg="Выберите, какое событие планируете"></p>
+        </div>
+        <div class="field" data-field="consent">
+          <label class="consent">
+            <input type="checkbox" name="consent" required aria-describedby="m-consent-err">
+            <span>Даю согласие на&nbsp;обработку персональных данных и&nbsp;принимаю <a href="#politika">политику конфиденциальности</a></span>
+          </label>
+          <p class="field__err" id="m-consent-err" data-msg="Нужно согласие на&nbsp;обработку данных"></p>
+        </div>
+        <div class="form__submit">
+          <button class="pill pill--accent" type="submit">Отправить</button>
+          <p class="form__note">Прототип: форма никуда не&nbsp;отправляет данные</p>
+        </div>
+    </form>
+    <div class="done" data-done hidden tabindex="-1" aria-live="polite">
+      <p class="done__title">Заявка отправлена<span>.</span></p>
+      <p>Спасибо! Ольга свяжется с&nbsp;вами, чтобы обсудить задумку.</p>
+      <p class="form__note">Прототип: данные никуда не&nbsp;ушли.</p>
+      <div class="done__btns">
+        <button class="pill pill--solid pill--sm" type="button" data-lead-close>Закрыть</button>
+        <button class="pill pill--line pill--sm" type="button" data-again>Заполнить ещё раз</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<aside class="vpanel" aria-label="Варианты дизайна">
+  <button class="vpanel__toggle" type="button" aria-expanded="false" aria-controls="vpanel-body" data-vpanel-toggle><span class="vpanel__dot" aria-hidden="true"></span><span>Варианты<span class="vpanel__more"> дизайна</span></span><span class="vpanel__chev" aria-hidden="true"></span></button>
+  <div class="vpanel__body" id="vpanel-body" hidden>
+    <p class="vpanel__hint">Нажимайте&nbsp;— страница меняется сразу и&nbsp;сама прокручивается к&nbsp;изменению. На&nbsp;готовом сайте этой панели не&nbsp;будет.</p>
+    <div class="vpanel__grp" role="group" aria-labelledby="vp-color">
+      <p class="vpanel__label" id="vp-color">Цвет</p>
+      <div class="vpanel__opts">
+        <button type="button" data-set="palette" data-val="red">Красный</button>
+        <button type="button" data-set="palette" data-val="gold">Золото</button>
+        <button type="button" data-set="palette" data-val="light">Светлый</button>
+      </div>
+    </div>
+    <div class="vpanel__grp" role="group" aria-labelledby="vp-size">
+      <p class="vpanel__label" id="vp-size">Размер текста</p>
+      <div class="vpanel__opts">
+        <button type="button" data-set="size" data-val="m2">Крупный, как у&nbsp;M2</button>
+        <button type="button" data-set="size" data-val="mid">Чуть мельче</button>
+      </div>
+    </div>
+    <div class="vpanel__grp" role="group" aria-labelledby="vp-deviz">
+      <p class="vpanel__label" id="vp-deviz">«Живи, люби, радуйся»</p>
+      <div class="vpanel__opts">
+        <button type="button" data-set="deviz" data-val="scenes">Вместо LIVE, LOVE, JOY</button>
+        <button type="button" data-set="deviz" data-val="hero">Под названием</button>
+        <button type="button" data-set="deviz" data-val="block">Отдельным блоком</button>
+        <button type="button" data-set="deviz" data-val="marquee">Бегущей строкой</button>
+      </div>
+    </div>
+    <div class="vpanel__grp" role="group" aria-labelledby="vp-foot">
+      <p class="vpanel__label" id="vp-foot">Надпись в&nbsp;подвале</p>
+      <div class="vpanel__opts">
+        <button type="button" data-set="foot" data-val="photo">Фото в&nbsp;буквах</button>
+        <button type="button" data-set="foot" data-val="video">Видео в&nbsp;буквах</button>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* приватный режим — не страшно */ } },
+  };
+  const play = (v) => { v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+  const saveData = !!(navigator.connection && navigator.connection.saveData);
+
+  /* Видео в буквах подвала: грузим и крутим, только когда выбран этот вариант и подвал рядом */
+  const footVideo = (() => {
+    const v = document.querySelector('.foot__video');
+    let near = false;
+    const sync = () => {
+      if (!v) return;
+      const want = root.getAttribute('data-foot') === 'video' && near && !reduce.matches;
+      if (want) {
+        if (!v.getAttribute('src')) v.src = v.dataset.src;
+        play(v);
+      } else if (!v.paused) {
+        v.pause();
+      }
+    };
+    if (v && 'IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => { near = entries.some((en) => en.isIntersecting); sync(); }, { rootMargin: '400px 0px' }).observe(v.parentElement);
+    } else {
+      near = true;
+    }
+    return { sync };
+  })();
+
+  /* Панель вариантов: атрибуты на <html>; выбор хранится в localStorage и в адресе — ссылку можно переслать */
+  const VARIANTS = {
+    palette: { attr: 'data-palette', key: 'llj-palette', param: 'color' },
+    size:    { attr: 'data-size',    key: 'llj-size',    param: 'text' },
+    deviz:   { attr: 'data-deviz',   key: 'llj-deviz',   param: 'deviz' },
+    foot:    { attr: 'data-foot',    key: 'llj-foot',    param: 'foot' },
+  };
+  /* куда прокрутить, чтобы изменение было видно */
+  const TARGETS = {
+    deviz: { scenes: '#live', hero: '.hero__motto', block: '.motto', marquee: '.marquee' },
+    foot:  { photo: '.foot__signwrap', video: '.foot__signwrap' },
+  };
+  const optBtns = document.querySelectorAll('[data-set]');
+  const syncButtons = () => optBtns.forEach((b) => {
+    b.setAttribute('aria-pressed', String(root.getAttribute(VARIANTS[b.dataset.set].attr) === b.dataset.val));
+  });
+  const reveal = (sel) => {
+    const el = document.querySelector(sel);
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    if (r.top >= 0 && r.bottom <= window.innerHeight) return;            // и так на экране
+    if (r.top >= 0 && r.top < window.innerHeight * 0.6) return;          // верх уже виден
+    el.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
+  };
+  const setVariant = (name, val) => {
+    const v = VARIANTS[name];
+    root.setAttribute(v.attr, val);
+    store.set(v.key, val);
+    syncButtons();
+    try {
+      const u = new URL(window.location.href);
+      u.searchParams.set(v.param, val);
+      history.replaceState(null, '', u);
+    } catch (e) { /* открыто файлом — адрес не меняем */ }
+    if (name === 'foot') footVideo.sync();
+    if (TARGETS[name] && TARGETS[name][val]) window.requestAnimationFrame(() => reveal(TARGETS[name][val]));
+  };
+  syncButtons();
+  optBtns.forEach((b) => b.addEventListener('click', () => setVariant(b.dataset.set, b.dataset.val)));
+
+  const vpToggle = document.querySelector('[data-vpanel-toggle]');
+  const vpBody = document.getElementById('vpanel-body');
+  const setPanel = (open, save) => {
+    vpToggle.setAttribute('aria-expanded', String(open));
+    vpBody.hidden = !open;
+    if (save) store.set('llj-vpanel', open ? '1' : '0');
+  };
+  setPanel(store.get('llj-vpanel') === '1', false);
+  vpToggle.addEventListener('click', () => setPanel(vpToggle.getAttribute('aria-expanded') !== 'true', true));
+  vpBody.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { setPanel(false, true); vpToggle.focus(); }
+  });
+
+  /* Видео первого экрана: фото под ним остаётся, пока видео не пошло; при «меньше движения» и экономии трафика — только фото */
+  const heroVideo = document.querySelector('.hero__video');
+  if (heroVideo && !reduce.matches && !saveData) {
+    heroVideo.src = window.matchMedia('(max-width: 47.99rem)').matches ? heroVideo.dataset.srcSm : heroVideo.dataset.src;
+    heroVideo.addEventListener('playing', () => heroVideo.classList.add('is-on'), { once: true });
+    play(heroVideo);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting) play(heroVideo); else heroVideo.pause(); });
+      }).observe(heroVideo);
+    }
+  }
+
+  /* Ссылки-заглушки «#» не прыгают наверх */
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href="#"]');
+    if (a) e.preventDefault();
+  });
+
+  /* Меню на весь экран: <dialog>, Esc закрывает, фокус возвращается на бургер */
+  const menu = document.getElementById('menu');
+  const burger = document.querySelector('[data-menu-open]');
+  let restoreFocus = true;
+  /* снимаем блокировку прокрутки сразу, не дожидаясь события close (оно асинхронное),
+     иначе прокрутка к разделу стартует при overflow:hidden и обрывается */
+  const unlockPage = () => {
+    burger.setAttribute('aria-expanded', 'false');
+    root.style.overflow = '';
+  };
+  const closeMenu = (afterClose) => {
+    if (!menu.open) { if (afterClose) afterClose(); return; }
+    const finish = () => {
+      menu.classList.remove('is-closing');
+      menu.close();
+      unlockPage();
+      if (afterClose) afterClose();
+    };
+    if (reduce.matches) { finish(); return; }
+    menu.classList.add('is-closing');
+    window.setTimeout(finish, 190);
+  };
+  burger.addEventListener('click', () => {
+    if (menu.open) return;
+    restoreFocus = true;
+    menu.showModal();
+    burger.setAttribute('aria-expanded', 'true');
+    root.style.overflow = 'hidden';
+  });
+  menu.addEventListener('close', () => {
+    unlockPage();
+    if (restoreFocus) burger.focus({ preventScroll: true });
+  });
+  menu.addEventListener('cancel', (e) => { e.preventDefault(); closeMenu(); });
+  menu.querySelector('[data-menu-close]').addEventListener('click', () => closeMenu());
+  menu.addEventListener('click', (e) => { if (e.target === menu) closeMenu(); });
+  menu.querySelectorAll('[data-menu-link]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      e.preventDefault();
+      if (!target) { closeMenu(); return; }
+      restoreFocus = false;
+      closeMenu(() => {
+        target.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
+        history.pushState(null, '', '#' + id);
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      });
+    });
+  });
+
+  /* Формы заявки (окно и блок «Контакты»): проверка полей, состояние «Заявка отправлена» */
+  const initForm = (form) => {
+    const done = form.parentElement.querySelector('[data-done]');
+    const fieldEl = (key) => form.querySelector('[data-field="' + key + '"]');
+    const setError = (key, on) => {
+      const f = fieldEl(key);
+      if (!f) return;
+      f.classList.toggle('is-invalid', on);
+      const err = f.querySelector('.field__err');
+      if (err) err.textContent = on ? err.dataset.msg : '';
+      f.querySelectorAll('input, select').forEach((i) => {
+        if (on) i.setAttribute('aria-invalid', 'true'); else i.removeAttribute('aria-invalid');
+      });
+    };
+    const rules = {
+      name: () => form.elements.name.value.trim().length >= 2,
+      phone: () => {
+        const v = form.elements.phone.value.trim();
+        const digits = v.replace(/\D/g, '');
+        return digits.length >= 10 && digits.length <= 15 && /^[+\d\s()\-]+$/.test(v);
+      },
+      type: () => !!form.elements.type.value,
+      consent: () => form.elements.consent.checked,
+    };
+    const touched = new Set();
+    const dirty = new Set();   // поле, в которое что-то вводили: пустое нетронутое не ругаем до «Отправить»
+    Object.keys(rules).forEach((key) => {
+      const f = fieldEl(key);
+      f.addEventListener('focusout', () => {
+        if (key === 'consent') return;
+        if (!touched.has(key) && !dirty.has(key)) return;
+        touched.add(key);
+        setError(key, !rules[key]());
+      });
+      f.addEventListener('input', () => { dirty.add(key); if (touched.has(key) || f.classList.contains('is-invalid')) setError(key, !rules[key]()); });
+      f.addEventListener('change', () => { if (f.classList.contains('is-invalid')) setError(key, !rules[key]()); });
+    });
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let first = null;
+      Object.keys(rules).forEach((key) => {
+        touched.add(key);
+        const ok = rules[key]();
+        setError(key, !ok);
+        if (!ok && !first) first = fieldEl(key).querySelector('input, select');
+      });
+      if (first) { first.focus(); return; }
+      form.hidden = true;
+      done.hidden = false;
+      done.focus({ preventScroll: true });
+    });
+    done.querySelector('[data-again]').addEventListener('click', () => {
+      form.reset();
+      touched.clear();
+      dirty.clear();
+      Object.keys(rules).forEach((key) => setError(key, false));
+      done.hidden = true;
+      form.hidden = false;
+      form.elements.name.focus();
+    });
+    return { form, done, clear: (key) => setError(key, false) };
+  };
+  const forms = [...document.querySelectorAll('[data-form]')].map(initForm);
+
+  /* «Обсудить событие» открывает окно с короткой формой, как у M2; без поддержки <dialog> — переход к блоку «Контакты» */
+  const dlg = document.getElementById('lead-dlg');
+  const dlgForm = forms.find((f) => dlg.contains(f.form));
+  let leadOpener = null;
+  const closeLead = () => { if (dlg.open) dlg.close(); };
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('[data-lead]');
+    if (!a || typeof dlg.showModal !== 'function') return;
+    e.preventDefault();
+    if (menu.open) closeMenu();
+    if (a.dataset.type && !dlgForm.form.hidden) {
+      dlgForm.form.elements.type.value = a.dataset.type;
+      dlgForm.clear('type');
+    }
+    leadOpener = a;
+    dlg.showModal();
+    root.style.overflow = 'hidden';
+    (dlgForm.form.hidden ? dlgForm.done : dlgForm.form.elements.name).focus({ preventScroll: true });
+  });
+  dlg.querySelectorAll('[data-lead-close]').forEach((b) => b.addEventListener('click', closeLead));
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) closeLead(); });
+  dlg.addEventListener('close', () => {
+    root.style.overflow = '';
+    if (leadOpener) leadOpener.focus({ preventScroll: true });
+  });
+
+  /* Фото в буквах подвала грузим, когда подвал близко */
+  const fsign = document.querySelector('.foot__sign');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((en) => en.isIntersecting)) { fsign.classList.add('is-lit'); io.disconnect(); }
+    }, { rootMargin: '800px 0px' });
+    io.observe(fsign);
+  } else {
+    fsign.classList.add('is-lit');
+  }
+})();
+</script>
+</body>
+</html>
