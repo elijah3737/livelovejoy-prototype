@@ -252,7 +252,7 @@
   --text-h2:    clamp(2rem, 1.25rem + 3vw, 3.75rem);
   --fs-seg:     clamp(1.0625rem, 0.86rem + 0.85vw, 1.5rem);
   --fs-pill:    1rem;
-  --fs-pill-sm: 0.875rem;
+  --fs-pill-sm: 1rem;         /* 12.10: все кнопки одного кегля — жалоба Ольги на разный размер шрифтов */
   --cta-h:      3.5rem;
 }
 :root[data-size="mid"] {
@@ -265,6 +265,6 @@
   --text-h2:    clamp(1.875rem, 1.2rem + 2.7vw, 3.5rem);
   --fs-seg:     clamp(1rem, 0.86rem + 0.55vw, 1.25rem);
   --fs-pill:    0.9375rem;
-  --fs-pill-sm: 0.8125rem;
+  --fs-pill-sm: 0.9375rem;
   --cta-h:      3.25rem;
 }

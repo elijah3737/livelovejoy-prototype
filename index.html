@@ -220,6 +220,8 @@ ul, ol { padding: 0; list-style: none; }
   font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700;
   font-size: 0.9375rem; letter-spacing: 0.04em; white-space: nowrap;
 }
+/* 320px: в шапке три кнопки (Telegram, Instagram, меню) — знак чуть мельче, чтобы не залезал под них */
+@media (max-width: 22.49rem) { .hdr .brand__mark { font-size: 0.75rem; } .hdr__actions { gap: var(--space-2xs); } }
 .brand__sub { font-size: 0.6875rem; letter-spacing: 0.2em; color: var(--muted); white-space: nowrap; }
 .hdr__actions { margin-left: auto; display: flex; align-items: center; gap: var(--space-xs); }
 .hdr__tablet { display: none; }
@@ -340,6 +342,10 @@ ul, ol { padding: 0; list-style: none; }
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
+/* четыре вида вместо трёх (12.10) — кегль чуть меньше, чтобы на десктопе встали в одну строку */
+@media (min-width: 48rem) { .segments { font-size: calc(var(--fs-seg) * 0.84); column-gap: var(--space-xs); } }
+/* планшет и ноутбук: виды — во всю ширину, кнопки строкой ниже, иначе четыре слова ломаются в столбик */
+@media (min-width: 48rem) and (max-width: 74.99rem) { .hero__row > div:first-child { grid-column: 1 / -1; } }
 .segments a {
   text-decoration: none; white-space: nowrap;
   padding-block: var(--space-2xs);
@@ -393,7 +399,7 @@ ul, ol { padding: 0; list-style: none; }
   .motto__line > span:nth-child(2) { justify-self: center; }
   .motto__line > span:nth-child(3) { justify-self: end; }
 }
-:root:not([data-deviz="marquee"]) .marquee { display: none; }
+/* бегущая строка теперь всегда (правки Ольги 12.10) */
 
 /* ── 2. О нас + факты ────────────────────────────────── */
 .about { padding-block: var(--section-y); scroll-margin-top: var(--hdr-h); }
@@ -443,8 +449,41 @@ ul, ol { padding: 0; list-style: none; }
 }
 .fact__cap { font-size: var(--text-sm); color: var(--muted); max-width: 22ch; }
 .fact--todo .fact__num { color: var(--muted); }
+/* О нас | Команда — переключатель (как у M2) */
+.about__head { display: flex; justify-content: flex-start; margin-bottom: clamp(var(--space-xl), 4vw, var(--space-2xl)); }
+.tabs { display: inline-flex; gap: var(--space-2xs); padding: var(--space-2xs); border: var(--rule-w) solid var(--rule); border-radius: var(--radius-pill); }
+.tabs__btn {
+  min-height: 2.75rem; padding: 0 var(--space-lg);
+  border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--ink);
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700;
+  font-size: var(--fs-pill); letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap;
+}
+.tabs__btn:hover { color: var(--link); }
+@media (max-width: 22.49rem) { .tabs__btn { padding: 0 var(--space-md); } }
+.tabs__btn[aria-selected="true"] { background: var(--ink); color: var(--on-ink); }
+.tabpanel[hidden] { display: none; }
+.tabpanel:not([hidden]) { animation: tab-in var(--dur-long) var(--ease-out); }
+@keyframes tab-in { from { opacity: 0; transform: translateY(0.5rem); } }
+.about__photo { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--bg-2); }
+.about__photo img { width: 100%; height: 100%; object-fit: cover; }
+.about__text { display: grid; align-content: start; gap: var(--space-xl); min-width: 0; }
+.about__letter { margin: 0; display: grid; gap: var(--space-md); padding-left: var(--space-lg); border-left: 2px solid var(--link); }
+.about__letter p { font-size: var(--text-lg); line-height: 1.55; max-width: 48ch; }
+.about__sign { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 600; font-size: var(--text-sm); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.about__draft { margin-top: calc(var(--space-md) * -1); font-size: var(--text-xs); color: var(--muted); }
+.team__lead { font-size: var(--text-lg); color: var(--muted); max-width: 52ch; margin-bottom: var(--space-xl); }
+.team { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xl) var(--space-md); }
+.member { container-type: inline-size; display: grid; gap: var(--space-2xs); align-content: start; min-width: 0; }
+.member__img { display: block; aspect-ratio: 4 / 5; overflow: hidden; margin-bottom: var(--space-sm); background: var(--bg-2); }
+.member__img img { width: 100%; height: 100%; object-fit: cover; }
+/* «ВИДЕОПРОДАКШН» широким шрифтом ≈ 12.6em — кегль не больше ширины карточки */
+.member__name { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700; font-size: min(clamp(1.125rem, 0.95rem + 0.7vw, 1.5rem), calc(100cqi / 13)); text-transform: uppercase; line-height: 1.1; }
+.member__role { font-size: var(--text-sm); color: var(--muted); }
+.about .projects__note { padding-bottom: 0; }
+@media (min-width: 48rem) { .team { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (min-width: 60rem) {
-  .about__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--space-3xl); }
+  .about__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--space-3xl); align-items: start; }
+  .about__photo { position: sticky; top: calc(var(--hdr-h) + var(--space-lg)); }
 }
 
 /* ── 3. Виды мероприятий (как у M2: номер, название, строка, переход) ── */
@@ -480,8 +519,8 @@ ul, ol { padding: 0; list-style: none; }
 .types .h2 { font-size: min(var(--text-h2), calc((100vw - 2 * var(--gutter)) / 10.9)); }
 .types__note { margin-top: var(--space-lg); font-size: var(--text-sm); color: var(--muted); max-width: 60ch; }
 @media (min-width: 60rem) {
-  .types__list { grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: var(--rule-w) solid var(--rule); }
-  .type { min-height: 16rem; padding: var(--space-lg) var(--space-xl) var(--space-xl); border-bottom: 0; border-left: var(--rule-w) solid var(--rule); }
+  .types__list { grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: var(--rule-w) solid var(--rule); }
+  .type { min-height: 16rem; padding: var(--space-lg) var(--space-lg) var(--space-xl); border-bottom: 0; border-left: var(--rule-w) solid var(--rule); }
   .types__list > li:first-child .type { padding-left: 0; border-left: 0; }
 }
 
@@ -547,6 +586,8 @@ ul, ol { padding: 0; list-style: none; }
   max-width: 14ch;
   font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
 }
+/* на телефоне между фото нет места под подпись — она наезжала на нижнее фото (и в версии до 12.10) */
+@media (max-width: 47.99rem) { .collage__cap { display: none; } }
 @media (min-width: 60rem) {
   .love__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--space-3xl); align-items: start; }
 }
@@ -874,6 +915,13 @@ ul, ol { padding: 0; list-style: none; }
   border-top: var(--rule-w) solid var(--rule);
 }
 .foot__nav { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-lg); }
+.foot__cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg); }
+.foot__col { display: grid; align-content: start; justify-items: start; gap: var(--space-xs); min-width: 0; }
+.foot__h { margin-bottom: var(--space-2xs); font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.foot__col a { text-decoration: none; font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 600; font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.04em; }
+.foot__col a:hover { color: var(--link); }
+/* «КОРПОРАТИВНЫЕ» широким шрифтом не влезает в половину телефона — колонки друг под другом */
+@media (max-width: 29.99rem) { .foot__cols { grid-template-columns: minmax(0, 1fr); } }
 .foot__nav a, .foot__contacts a {
   text-decoration: none; white-space: nowrap;
 }
@@ -910,21 +958,35 @@ ul, ol { padding: 0; list-style: none; }
 
 /* ── Окно «Обсудить событие» (как у M2: имя, телефон, тип) ── */
 .lead-dlg {
-  width: min(calc(100% - 2 * var(--space-sm)), 35rem);
+  width: min(calc(100% - 2 * var(--space-sm)), 58rem);
   max-width: none; max-height: calc(100svh - 2 * var(--space-sm));
   margin: auto; padding: 0;
   border: var(--rule-w) solid var(--rule); border-radius: var(--radius-sm);
   background: var(--bg); color: var(--ink);
   overflow-y: auto; overscroll-behavior: contain;
 }
-.lead-dlg[open] { animation: dlg-in var(--dur-long) var(--ease-out); }
+.lead-dlg[open] { display: grid; animation: dlg-in var(--dur-long) var(--ease-out); }
+.lead-dlg__photo { position: relative; height: 11rem; overflow: hidden; background: var(--bg-2); }
+.lead-dlg__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.lead-dlg__photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--scrim-strong), var(--scrim-clear) 60%); }
+.lead-dlg__who { position: absolute; left: var(--space-md); bottom: var(--space-md); z-index: 1; display: grid; gap: var(--space-3xs); color: var(--photo-ink); }
+.lead-dlg__name { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700; font-size: var(--text-h3); text-transform: uppercase; line-height: 1; }
+.lead-dlg__role { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--photo-muted); }
+.lead-dlg__note { left: auto; right: var(--space-md); top: var(--space-md); bottom: auto; z-index: 1; }
+@media (max-width: 47.99rem) { .lead-dlg__note { display: none; } }
+@media (min-width: 48rem) {
+  .lead-dlg[open] { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  .lead-dlg__photo { height: auto; min-height: 100%; }
+}
 @keyframes dlg-in { from { opacity: 0; transform: translateY(1rem); } }
 .lead-dlg::backdrop {
   background: color-mix(in oklch, var(--photo-base) 72%, transparent);
   -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
 }
 .lead-dlg__in { position: relative; display: grid; gap: var(--space-lg); padding: clamp(var(--space-lg), 4vw, var(--space-xl)); }
-.lead-dlg__close { position: absolute; top: var(--space-sm); right: var(--space-sm); }
+/* крестик — от угла окна: на телефоне ложится на фото Ольги */
+.lead-dlg__in { position: static; }
+.lead-dlg__close { position: absolute; top: var(--space-sm); right: var(--space-sm); z-index: 2; background: var(--glass-bg); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 .lead-dlg__title {
   padding-right: 3rem;
   font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700;
@@ -936,6 +998,116 @@ ul, ol { padding: 0; list-style: none; }
 .lead-dlg .form, .lead-dlg .form__row { gap: var(--space-md); }
 .lead-dlg .form__row { grid-template-columns: minmax(0, 1fr); }
 .lead-dlg .done { padding: 0; border: 0; background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* ── 7. Новый год + календарь поводов ───────────────── */
+.ny { min-height: var(--screen-h); display: grid; align-items: end; scroll-margin-top: 0; }
+.ny .scrim {
+  background:
+    linear-gradient(to top, var(--scrim-strong) 10%, var(--scrim-clear) 80%),
+    linear-gradient(to right, var(--scrim-strong), var(--scrim-clear) 70%);
+}
+.ny__in { container-type: inline-size; padding-top: calc(var(--hdr-h) + var(--space-2xl)); padding-bottom: clamp(var(--space-xl), 7svh, var(--space-3xl)); display: grid; gap: var(--space-md); justify-items: start; }
+.ny__title {
+  font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 800;
+  font-size: min(calc(100cqi / 9.4), var(--scene-cap));
+  line-height: 1; letter-spacing: -0.02em; text-transform: uppercase; margin-left: -0.04em;
+  white-space: nowrap;
+}
+.ny__text { max-width: 46ch; font-size: var(--text-lg); line-height: 1.5; color: var(--muted); }
+.ny__cta { margin-top: var(--space-xs); min-height: var(--cta-h); padding-inline: calc(var(--space-lg) + var(--space-sm)); }
+.cal { justify-self: stretch; margin-top: clamp(var(--space-lg), 4svh, var(--space-2xl)); padding-top: var(--space-md); border-top: var(--rule-w) solid var(--rule); }
+.cal__label { font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: var(--space-sm); }
+.cal__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md) var(--space-lg); }
+.cal__list li { display: grid; gap: var(--space-3xs); min-width: 0; }
+.cal__date { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700; font-size: clamp(1.25rem, 1rem + 1vw, 2rem); line-height: 1; color: var(--link); }
+.cal__name { font-size: var(--text-sm); color: var(--ink); }
+@media (min-width: 48rem) { .cal__list { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* ── 10б. Отчётное видео ─────────────────────────────── */
+.reel { padding-block: var(--section-y); scroll-margin-top: var(--hdr-h); }
+.reel__frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--bg-2); }
+.reel__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.reel__play {
+  position: absolute; inset: 0; z-index: 1;
+  display: grid; place-content: center; justify-items: center; gap: var(--space-md);
+  border: 0; background: linear-gradient(to top, var(--scrim-mid), var(--scrim-clear) 60%), var(--scrim-soft);
+  color: var(--photo-ink);
+}
+.reel__btn { position: relative; width: clamp(4.5rem, 3rem + 5vw, 7.5rem); aspect-ratio: 1; border-radius: 50%; background: var(--accent-fill); transition: transform var(--dur-short) var(--ease-out); }
+.reel__btn::after { content: ""; position: absolute; left: 54%; top: 50%; transform: translate(-50%, -50%); border-style: solid; border-width: 0.8em 0 0.8em 1.3em; border-color: transparent transparent transparent var(--accent-ink); font-size: clamp(0.9rem, 0.6rem + 1vw, 1.5rem); }
+.reel__play:hover .reel__btn { transform: scale(1.06); }
+.reel__cap { font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase; }
+.reel__note { z-index: 2; pointer-events: none; }
+.reel.is-playing .reel__play, .reel.is-playing .reel__note { display: none; }
+@media (max-width: 47.99rem) { .reel__frame { aspect-ratio: 4 / 5; } }
+
+/* ── 11в. Соцсети ───────────────────────────────────── */
+.social { padding-block: var(--section-y); scroll-margin-top: var(--hdr-h); }
+.feed { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2xs); }
+.feed li { aspect-ratio: 1; overflow: hidden; background: var(--bg-2); }
+.feed img { width: 100%; height: 100%; object-fit: cover; }
+.social__btns { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: var(--space-xl); }
+.social__btns .pill { min-height: var(--cta-h); padding-inline: calc(var(--space-lg) + var(--space-xs)); }
+@media (min-width: 60rem) { .feed { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+
+/* ── 12б. Офис на карте ─────────────────────────────── */
+.office { padding-block: var(--section-y); scroll-margin-top: var(--hdr-h); }
+.office__grid { display: grid; gap: var(--space-xl); }
+.office__text { display: grid; gap: var(--space-md); align-content: start; justify-items: start; }
+.office__addr { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 600; font-size: var(--text-h3); text-transform: uppercase; line-height: 1.15; }
+.office__hint { color: var(--muted); max-width: 40ch; }
+.office__map { aspect-ratio: 4 / 3; overflow: hidden; background: var(--bg-2); border: var(--rule-w) solid var(--rule); }
+.office__map { display: block; }
+.office__map img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter var(--dur-long) var(--ease-out); }
+.office__map:hover img { filter: none; }
+@media (min-width: 60rem) {
+  .office__grid { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--space-3xl); }
+  .office__map { aspect-ratio: 16 / 9; }
+}
+
+/* ── 12в. Наши направления ──────────────────────────── */
+.dirs { padding-block: var(--section-y) 0; }
+.dirs__title { margin-bottom: var(--space-lg); }
+.dirs__list { border-top: var(--rule-w) solid var(--rule); }
+.dir {
+  container-type: inline-size;
+  display: grid; grid-template-columns: minmax(0, 1fr); align-items: baseline; column-gap: var(--space-md); row-gap: var(--space-2xs);
+  padding-block: clamp(var(--space-md), 2vw, var(--space-lg));
+  border-bottom: var(--rule-w) solid var(--rule);
+  text-decoration: none;
+}
+.dir__mark { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 800; font-size: min(clamp(1.25rem, 0.8rem + 2.2vw, 3rem), calc(100cqi / 8.4)); line-height: 1; text-transform: uppercase; white-space: nowrap; }
+.dir__sub { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 300; font-size: clamp(1.25rem, 0.8rem + 2.2vw, 3rem); line-height: 1; text-transform: lowercase; color: var(--link); white-space: nowrap; }
+.dir__text { grid-column: 1 / -1; font-size: var(--text-sm); color: var(--muted); }
+.dir:hover .dir__mark { color: var(--link); }
+@media (min-width: 48rem) { .dir { grid-template-columns: auto minmax(0, 1fr); } }
+@media (min-width: 60rem) {
+  .dir { grid-template-columns: auto auto minmax(0, 1fr); }
+  .dir__text { grid-column: 3; justify-self: end; text-align: right; }
+}
+
+/* ── Единая шкала текста (12.10, жалоба Ольги «размер шрифтов разный») ──────────
+   Пять ступеней на токенах размера (панель «Размер текста» продолжает работать):
+   1) заголовок раздела — --text-h2: все h2, «Агентство Ольги», «Обсудим ваше событие?»;
+   2) заголовок карточки — --text-card: виды, шаги, проекты, журнал, команда, офис;
+   3) абзац — --text-lg: любой поясняющий текст под заголовком раздела;
+   4) текст карточки — --text-base: описание внутри карточки, подписи к цифрам;
+   5) метка — --text-xs: короткие надписи капсом (не мельче 14px).
+   Огромные слова-картинки (LIVE LOVE JOY, ЖИВИ, НОВЫЙ ГОД, бегущая строка) — не текст, в шкалу не входят. */
+:root { --text-card: clamp(1.125rem, 0.95rem + 0.7vw, 1.5rem); }
+.manifesto, .contact__title { font-size: var(--text-h2); }
+.contact__title { font-weight: 700; letter-spacing: -0.012em; line-height: 1.04; }
+.step__title, .post__title, .member__name, .tile__title, .office__addr, .lead-dlg__name { font-size: var(--text-card); font-weight: 700; line-height: 1.15; }
+.type__name { font-size: min(var(--text-card), calc(100cqi / 12.8)); }
+.member__name { font-size: min(var(--text-card), calc(100cqi / 13)); }
+.hero__tagline, .sec-head__note, .office__hint, .lead-dlg__lead,
+.about__letter p, .team__lead, .scene__text, .works__lead, .ny__text, .contact__lead { font-size: var(--text-lg); line-height: 1.5; }
+.type__text, .step__text, .tile__text, .post__text, .member__role, .dir__text, .fact__cap, .cal__name, .clinks__hint { font-size: var(--text-base); line-height: 1.5; }
+.brand__sub { font-size: 0.75rem; }
+@media (min-width: 60rem) {
+  /* четыре колонки видов: поля поуже, чтобы «КОРПОРАТИВНЫЕ» встало в кегль заголовка карточки */
+  .type { padding-inline: var(--space-md); }
+}
 
 /* ── Панель вариантов (прототип, на сайте не будет) ─────── */
 .vpanel {
@@ -1044,7 +1216,8 @@ ul, ol { padding: 0; list-style: none; }
       <span class="brand__sub">event agency</span>
     </a>
     <div class="hdr__actions">
-            <a class="icon-btn" href="#" aria-label="Instagram — адрес уточняем"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg></a>
+      <a class="icon-btn" href="https://t.me/OlgaBilyk77" aria-label="Telegram"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg></a>
+      <a class="icon-btn" href="#" aria-label="Instagram — адрес уточняем"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg></a>
       <div class="hdr__tablet">
         <a class="hdr__phone" href="tel:+79055474281">+7 905 547-42-81</a>
         <a class="pill pill--solid pill--sm" href="#contacts" data-lead>Обсудить событие</a>
@@ -1067,12 +1240,15 @@ ul, ol { padding: 0; list-style: none; }
   </div>
   <nav class="wrap menu__nav" aria-label="Разделы сайта">
     <ul class="menu__words">
-      <li><a class="menu__big" href="#live" data-menu-link><span class="menu__word"><span class="w-en">LIVE</span><span class="w-ru">ЖИВИ</span></span><span class="menu__ru">Городские</span></a></li>
-      <li><a class="menu__big" href="#love" data-menu-link><span class="menu__word"><span class="w-en">LOVE</span><span class="w-ru">ЛЮБИ</span></span><span class="menu__ru">Частные</span></a></li>
-      <li><a class="menu__big" href="#joy" data-menu-link><span class="menu__word"><span class="w-en">JOY</span><span class="w-ru">РАДУЙСЯ</span></span><span class="menu__ru">Корпоративные</span></a></li>
+      <li><a class="menu__big" href="#live" data-menu-link><span class="menu__word"><span class="w-en">LIVE</span><span class="w-ru">ЖИВИ</span></span></a></li>
+      <li><a class="menu__big" href="#love" data-menu-link><span class="menu__word"><span class="w-en">LOVE</span><span class="w-ru">ЛЮБИ</span></span></a></li>
+      <li><a class="menu__big" href="#joy" data-menu-link><span class="menu__word"><span class="w-en">JOY</span><span class="w-ru">РАДУЙСЯ</span></span></a></li>
     </ul>
     <ul class="menu__more">
+      <li><a href="#about" data-menu-link data-tab-to="about">О нас</a></li>
+      <li><a href="#about" data-menu-link data-tab-to="team">Команда</a></li>
       <li><a href="#vidy" data-menu-link>Виды мероприятий</a></li>
+      <li><a href="#novyj-god" data-menu-link>Новый год</a></li>
       <li><a href="#projects" data-menu-link>Проекты</a></li>
       <li><a href="#zhurnal" data-menu-link>Журнал</a></li>
       <li><a href="#contacts" data-menu-link>Контакты</a></li>
@@ -1089,7 +1265,7 @@ ul, ol { padding: 0; list-style: none; }
 
 <section class="hero band--photo" id="top" aria-labelledby="hero-title">
   <picture class="media"><source media="(max-width: 47.99rem)" srcset="https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=640&amp;h=1138&amp;fit=crop&amp;q=65&amp;auto=format 640w, https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=900&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 900w, https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=1080&amp;h=1920&amp;fit=crop&amp;q=65&amp;auto=format 1080w" sizes="100vw" width="1080" height="1920"><img src="https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format" srcset="https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=1280&amp;h=800&amp;fit=crop&amp;q=65&amp;auto=format 1280w, https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format 1920w, https://images.unsplash.com/photo-1684679493212-6adfaf58c388?w=2560&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 2560w" sizes="100vw" width="1920" height="1200" alt="Концертный зал: зрители в партере, сцена в тёплом свете прожекторов" fetchpriority="high" decoding="async"></picture>
-    <video class="media hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="https://assets.mixkit.co/videos/48509/48509-720.mp4" data-src-sm="https://assets.mixkit.co/videos/48509/48509-360.mp4"></video>
+  <video class="media hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="https://assets.mixkit.co/videos/48509/48509-720.mp4" data-src-sm="https://assets.mixkit.co/videos/48509/48509-360.mp4"></video>
   <div class="scrim" aria-hidden="true"></div>
   <div class="wrap hero__in">
     <p class="label hero__kicker"><span class="label__dot" aria-hidden="true">●</span>&nbsp; Ивент-агентство&nbsp;·&nbsp;Москва</p>
@@ -1101,7 +1277,7 @@ ul, ol { padding: 0; list-style: none; }
     <div class="hero__row">
       <div>
         <nav class="segments" aria-label="Виды мероприятий">
-          <a href="#live">Городские</a><span class="segments__sep" aria-hidden="true">|</span><a href="#love">Частные</a><span class="segments__sep" aria-hidden="true">|</span><a href="#joy">Корпоративные</a>
+          <a href="#love">Частные</a><span class="segments__sep" aria-hidden="true">|</span><a href="#love">Свадьбы</a><span class="segments__sep" aria-hidden="true">|</span><a href="#joy">Корпоративные</a><span class="segments__sep" aria-hidden="true">|</span><a href="#live">Городские</a>
         </nav>
         <p class="hero__tagline">Больше 10&nbsp;лет организуем события&nbsp;— от&nbsp;идеи до&nbsp;последнего&nbsp;гостя</p>
       </div>
@@ -1131,20 +1307,45 @@ ul, ol { padding: 0; list-style: none; }
 </section>
 
 <section class="about band band--light" id="about" aria-labelledby="about-title">
-  <div class="wrap about__grid">
-    <div>
-      <h2 class="manifesto" id="about-title">
-        <span class="manifesto__line">Агентство <em>Ольги</em><span class="manifesto__dot">.</span></span>
-      </h2>
-      <p class="about__lead"><strong>Ольга</strong> начинала с&nbsp;детских праздников, потом были городские фестивали и&nbsp;год в&nbsp;«Зарядье», а&nbsp;сейчас&nbsp;— ещё частные и&nbsp;корпоративные события.</p>
-      <p class="about__lead"><strong>Live Love Joy</strong> берёт проект целиком: идея, сценарий, площадка, артисты, декор и&nbsp;сам день праздника. Вам не&nbsp;нужно искать и&nbsp;сводить подрядчиков&nbsp;— это наша работа.</p>
+  <div class="wrap">
+    <div class="about__head">
+      <h2 class="sr-only" id="about-title">О нас и команда</h2>
+      <div class="tabs" role="tablist" aria-label="О нас и команда">
+        <button class="tabs__btn" type="button" role="tab" id="tab-about" aria-controls="panel-about" aria-selected="true" data-tab="about">О нас</button>
+        <button class="tabs__btn" type="button" role="tab" id="tab-team" aria-controls="panel-team" aria-selected="false" tabindex="-1" data-tab="team">Команда</button>
+      </div>
     </div>
-    <ul class="facts" aria-label="Факты об агентстве">
-      <li class="fact"><span class="fact__num">10+</span><span class="fact__cap">лет в&nbsp;организации событий</span></li>
-      <li class="fact"><span class="fact__num">Год</span><span class="fact__cap">праздников и&nbsp;концертов в&nbsp;«Зарядье»</span></li>
-      <li class="fact"><span class="fact__num">3</span><span class="fact__cap">вида событий: городские, частные и&nbsp;корпоративные</span></li>
-      <li class="fact"><span class="fact__num">1</span><span class="fact__cap">организатор на&nbsp;связи&nbsp;— от&nbsp;первой встречи до&nbsp;финала</span></li>
-    </ul>
+
+    <div class="tabpanel" role="tabpanel" id="panel-about" aria-labelledby="tab-about" data-panel="about">
+      <div class="about__grid">
+        <figure class="about__photo">
+          <img src="https://images.unsplash.com/photo-1775467225376-1127edc8cc8a?w=720&amp;h=900&amp;fit=crop&amp;q=70&amp;auto=format" alt="" width="720" height="900" loading="lazy" decoding="async" sizes="(min-width: 60rem) 34vw, 100vw">
+        </figure>
+        <div class="about__text">
+          <p class="manifesto"><span class="manifesto__line">Агентство <em>Ольги</em><span class="manifesto__dot">.</span></span></p>
+          <blockquote class="about__letter">
+            <p>Я&nbsp;начинала с&nbsp;детских праздников, потом были городские фестивали и&nbsp;концерты. Мне лучше весь месяц работать над одним большим событием, чем каждый день над&nbsp;маленькими,&nbsp;— поэтому проектов у&nbsp;нас немного, и&nbsp;в&nbsp;каждый мы&nbsp;вкладываемся целиком.</p>
+            <footer class="about__sign">Ольга, Live Love Joy</footer>
+          </blockquote>
+          <ul class="facts" aria-label="Факты об агентстве">
+            <li class="fact"><span class="fact__num">10+</span><span class="fact__cap">лет в&nbsp;организации событий</span></li>
+            <li class="fact"><span class="fact__num">Год</span><span class="fact__cap">праздников и&nbsp;концертов в&nbsp;«Зарядье»</span></li>
+            <li class="fact"><span class="fact__num">Видео</span><span class="fact__cap">свой продакшн: репортаж и&nbsp;отчётный ролик с&nbsp;события</span></li>
+            <li class="fact"><span class="fact__num">1</span><span class="fact__cap">организатор на&nbsp;связи&nbsp;— от&nbsp;первой встречи до&nbsp;финала</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabpanel" role="tabpanel" id="panel-team" aria-labelledby="tab-team" data-panel="team" hidden>
+      <p class="team__lead">Каждый отвечает за&nbsp;свою часть праздника, а&nbsp;Ольга собирает всё в&nbsp;одно событие и&nbsp;остаётся вашим контактом.</p>
+      <ul class="team">
+        <li class="member"><span class="member__img"><img src="https://images.unsplash.com/photo-1772714076769-630952dc971e?w=600&amp;h=750&amp;fit=crop&amp;q=70&amp;auto=format" alt="" width="600" height="750" loading="lazy" decoding="async"></span><span class="member__name">Ольга</span><span class="member__role">Основатель, ведёт каждый проект</span></li>
+        <li class="member"><span class="member__img"><img src="https://images.unsplash.com/photo-1766019463451-04e0b1269f37?w=600&amp;h=750&amp;fit=crop&amp;q=70&amp;auto=format" alt="" width="600" height="750" loading="lazy" decoding="async"></span><span class="member__name">Режиссёр</span><span class="member__role">Сценарий, ведущие и&nbsp;программа</span></li>
+        <li class="member"><span class="member__img"><img src="https://images.unsplash.com/photo-1782038522351-ff45b74aa349?w=600&amp;h=750&amp;fit=crop&amp;q=70&amp;auto=format" alt="" width="600" height="750" loading="lazy" decoding="async"></span><span class="member__name">Декоратор</span><span class="member__role">Оформление, цветы и&nbsp;свет</span></li>
+        <li class="member"><span class="member__img"><img src="https://images.unsplash.com/photo-1594394489098-74ac04c0fc2e?w=600&amp;h=750&amp;fit=crop&amp;q=70&amp;auto=format" alt="" width="600" height="750" loading="lazy" decoding="async"></span><span class="member__name">Видеопродакшн</span><span class="member__role">Съёмка, монтаж и&nbsp;отчётные ролики</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -1154,11 +1355,11 @@ ul, ol { padding: 0; list-style: none; }
       <h2 class="h2" id="types-title">Виды мероприятий</h2>
     </div>
     <ol class="types__list">
-      <li><a class="type" href="#live"><span class="type__num">(01)</span><span class="type__name">Городские</span><span class="type__text">Праздники по&nbsp;городскому календарю, фестивали, концерты и&nbsp;форумы.</span><span class="type__go">Подробнее <span class="type__arr" aria-hidden="true">→</span></span></a></li>
-      <li><a class="type" href="#love"><span class="type__num">(02)</span><span class="type__name">Частные</span><span class="type__text">Дни рождения, юбилеи и&nbsp;детские праздники для&nbsp;вас и&nbsp;ваших близких.</span><span class="type__go">Подробнее <span class="type__arr" aria-hidden="true">→</span></span></a></li>
-      <li><a class="type" href="#joy"><span class="type__num">(03)</span><span class="type__name">Корпоративные</span><span class="type__text">Корпоративы, клиентские вечера и&nbsp;конференции для&nbsp;компаний.</span><span class="type__go">Подробнее <span class="type__arr" aria-hidden="true">→</span></span></a></li>
+      <li><a class="type" href="#love"><span class="type__num">(01)</span><span class="type__name">Частные</span><span class="type__text">Дни рождения, юбилеи, детские праздники и&nbsp;выпускные.</span><span class="type__go">Подробнее <span class="type__arr" aria-hidden="true">→</span></span></a></li>
+      <li><a class="type" href="#love"><span class="type__num">(02)</span><span class="type__name">Свадьбы</span><span class="type__text">Свадьба под&nbsp;ключ: концепция, площадка, декор, программа и&nbsp;координация дня.</span><span class="type__go">Подробнее <span class="type__arr" aria-hidden="true">→</span></span></a></li>
+      <li><a class="type" href="#joy"><span class="type__num">(03)</span><span class="type__name">Корпоративные</span><span class="type__text">Корпоративы и&nbsp;деловые события: конференции, форумы, презентации.</span><span class="type__go">Подробнее <span class="type__arr" aria-hidden="true">→</span></span></a></li>
+      <li><a class="type" href="#live"><span class="type__num">(04)</span><span class="type__name">Городские</span><span class="type__text">Фестивали и&nbsp;городские праздники по&nbsp;календарю города.</span><span class="type__go">Подробнее <span class="type__arr" aria-hidden="true">→</span></span></a></li>
     </ol>
-    <p class="types__note">Названия рабочие: Ольга пришлёт свой список разделов, и&nbsp;мы&nbsp;поставим его сюда.</p>
   </div>
 </section>
 
@@ -1166,14 +1367,13 @@ ul, ol { padding: 0; list-style: none; }
   <picture class="media"><source media="(max-width: 47.99rem)" srcset="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=640&amp;h=1138&amp;fit=crop&amp;q=65&amp;auto=format 640w, https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=900&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 900w, https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1080&amp;h=1920&amp;fit=crop&amp;q=65&amp;auto=format 1080w" sizes="100vw" width="1080" height="1920"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format" srcset="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1280&amp;h=800&amp;fit=crop&amp;q=65&amp;auto=format 1280w, https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format 1920w, https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=2560&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 2560w" sizes="100vw" width="1920" height="1200" alt="Концерт под открытым небом: толпа перед сценой в оранжевом свете" loading="lazy" decoding="async"></picture>
   <div class="scrim" aria-hidden="true"></div>
   <div class="wrap scene__in">
-    <p class="label">(01)&nbsp;<span class="label__dot">●</span>&nbsp;Виды мероприятий</p>
-    <h2 class="scene__title" id="live-title"><span class="scene__word"><span class="w-en">LIVE</span><span class="w-ru">ЖИВИ</span></span><span class="scene__sub">Городские события</span></h2>
+    <p class="label"><span class="label__dot">●</span>&nbsp;Городские</p>
+    <h2 class="scene__title" id="live-title"><span class="scene__word"><span class="w-en">LIVE</span><span class="w-ru">ЖИВИ</span></span></h2>
     <p class="scene__text">Фестивали, концерты и&nbsp;городские праздники. В&nbsp;«Зарядье» мы&nbsp;выиграли тендер на&nbsp;первый год работы парка и&nbsp;провели весь календарь: 1&nbsp;и&nbsp;9&nbsp;Мая, День России, День города, День народного единства, Новый год&nbsp;— и&nbsp;концерты каждую неделю.</p>
     <ul class="chips" aria-label="Форматы">
       <li class="chip">Городские праздники</li>
       <li class="chip">Фестивали</li>
       <li class="chip">Концерты</li>
-      <li class="chip">Форумы</li>
     </ul>
     <a class="go" href="#projects">Смотреть проекты <span class="go__arr" aria-hidden="true">→</span></a>
   </div>
@@ -1181,22 +1381,24 @@ ul, ol { padding: 0; list-style: none; }
 
 <section class="love band band--light" id="love" aria-labelledby="love-title">
   <div class="wrap love__in">
-    <p class="label">(02)&nbsp;<span class="label__dot">●</span>&nbsp;Виды мероприятий</p>
-    <h2 class="scene__title" id="love-title"><span class="scene__word"><span class="w-en">LOVE</span><span class="w-ru">ЛЮБИ</span></span><span class="scene__sub">Частные праздники</span></h2>
+    <p class="label"><span class="label__dot">●</span>&nbsp;Частные и&nbsp;свадьбы</p>
+    <h2 class="scene__title" id="love-title"><span class="scene__word"><span class="w-en">LOVE</span><span class="w-ru">ЛЮБИ</span></span></h2>
     <div class="love__grid">
       <div class="love__text">
-        <p class="scene__text">Дни рождения, юбилеи и&nbsp;детские праздники. Начинаем с&nbsp;разговора о&nbsp;людях: кто придёт, что они любят, каким должен запомниться этот день. Площадку, цветы, программу и&nbsp;ведущего берём на&nbsp;себя.</p>
+        <p class="scene__text">Дни рождения, юбилеи, детские праздники и&nbsp;свадьбы. Начинаем с&nbsp;разговора о&nbsp;людях: кто придёт, что они любят, каким должен запомниться этот день. Площадку, цветы, программу и&nbsp;ведущего берём на&nbsp;себя.</p>
         <ul class="chips" aria-label="Форматы">
           <li class="chip">Дни рождения</li>
           <li class="chip">Юбилеи</li>
           <li class="chip">Детские праздники</li>
+          <li class="chip">Выпускные</li>
+          <li class="chip">Свадьбы</li>
         </ul>
         <a class="go" href="#projects">Смотреть проекты <span class="go__arr" aria-hidden="true">→</span></a>
       </div>
       <div class="collage">
         <figure class="collage__item collage__a"><img src="https://images.unsplash.com/photo-1782038523014-831222a83f32?w=720&amp;h=900&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.58&amp;fp-y=0.5" srcset="https://images.unsplash.com/photo-1782038523014-831222a83f32?w=480&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.58&amp;fp-y=0.5 480w, https://images.unsplash.com/photo-1782038523014-831222a83f32?w=720&amp;h=900&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.58&amp;fp-y=0.5 720w, https://images.unsplash.com/photo-1782038523014-831222a83f32?w=960&amp;h=1200&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.58&amp;fp-y=0.5 960w" sizes="(min-width: 60rem) 31vw, 61vw" width="720" height="900" alt="Праздничный стол в саду: гости, белая скатерть и розовые цветы" loading="lazy" decoding="async"></figure>
-        <figure class="collage__item collage__b"><img src="https://images.unsplash.com/photo-1784706958675-9b53c92a85d8?w=480&amp;h=480&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.27&amp;fp-y=0.55" srcset="https://images.unsplash.com/photo-1784706958675-9b53c92a85d8?w=320&amp;h=320&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.27&amp;fp-y=0.55 320w, https://images.unsplash.com/photo-1784706958675-9b53c92a85d8?w=480&amp;h=480&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.27&amp;fp-y=0.55 480w, https://images.unsplash.com/photo-1784706958675-9b53c92a85d8?w=720&amp;h=720&amp;fit=crop&amp;q=70&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.27&amp;fp-y=0.55 720w" sizes="(min-width: 60rem) 18vw, 35vw" width="480" height="480" alt="Розовые пионы в стеклянной вазе" loading="lazy" decoding="async"></figure>
-        <p class="collage__cap" aria-hidden="true">Цветы, свет, сервировка</p>
+        <figure class="collage__item collage__b"><img src="https://images.unsplash.com/photo-1521543832500-49e69fb2bea2?w=480&amp;h=480&amp;fit=crop&amp;q=70&amp;auto=format" alt="Букет невесты" width="480" height="480" loading="lazy" decoding="async"></figure>
+        <p class="collage__cap" aria-hidden="true">Свадьбы и&nbsp;праздники</p>
         <figure class="collage__item collage__c"><img src="https://images.unsplash.com/photo-1627764927037-a4c3b80b6bb7?w=640&amp;h=480&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1627764927037-a4c3b80b6bb7?w=400&amp;h=300&amp;fit=crop&amp;q=70&amp;auto=format 400w, https://images.unsplash.com/photo-1627764927037-a4c3b80b6bb7?w=640&amp;h=480&amp;fit=crop&amp;q=70&amp;auto=format 640w, https://images.unsplash.com/photo-1627764927037-a4c3b80b6bb7?w=880&amp;h=660&amp;fit=crop&amp;q=70&amp;auto=format 880w" sizes="(min-width: 60rem) 23vw, 45vw" width="640" height="480" alt="Дети играют с воздушными шарами на лужайке" loading="lazy" decoding="async"></figure>
       </div>
     </div>
@@ -1207,13 +1409,15 @@ ul, ol { padding: 0; list-style: none; }
   <picture class="media"><source media="(max-width: 47.99rem)" srcset="https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=640&amp;h=1138&amp;fit=crop&amp;q=65&amp;auto=format 640w, https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=900&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 900w, https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=1080&amp;h=1920&amp;fit=crop&amp;q=65&amp;auto=format 1080w" sizes="100vw" width="1080" height="1920"><img src="https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format" srcset="https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=1280&amp;h=800&amp;fit=crop&amp;q=65&amp;auto=format 1280w, https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format 1920w, https://images.unsplash.com/photo-1651065698941-a84694eb1694?w=2560&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 2560w" sizes="100vw" width="1920" height="1200" alt="Вечеринка: гости в вечерних нарядах танцуют под сценическим светом" loading="lazy" decoding="async"></picture>
   <div class="scrim" aria-hidden="true"></div>
   <div class="wrap scene__in">
-    <p class="label">(03)&nbsp;<span class="label__dot">●</span>&nbsp;Виды мероприятий</p>
-    <h2 class="scene__title" id="joy-title"><span class="scene__word"><span class="w-en">JOY</span><span class="w-ru">РАДУЙСЯ</span></span><span class="scene__sub">Корпоративные события</span></h2>
-    <p class="scene__text">Корпоративы, клиентские вечера и&nbsp;конференции. Площадку, программу, артистов и&nbsp;всех подрядчиков берём на&nbsp;себя&nbsp;— вам останется согласовать смету и&nbsp;прийти на&nbsp;событие вместе со&nbsp;всеми.</p>
+    <p class="label"><span class="label__dot">●</span>&nbsp;Корпоративные и&nbsp;деловые</p>
+    <h2 class="scene__title" id="joy-title"><span class="scene__word"><span class="w-en">JOY</span><span class="w-ru">РАДУЙСЯ</span></span></h2>
+    <p class="scene__text">Корпоративы, клиентские вечера и&nbsp;деловые события: конференции, форумы, презентации. Площадку, программу, артистов и&nbsp;всех подрядчиков собираем сами&nbsp;— вам останется согласовать смету и&nbsp;прийти на&nbsp;событие вместе со&nbsp;всеми.</p>
     <ul class="chips" aria-label="Форматы">
       <li class="chip">Корпоративы</li>
       <li class="chip">Клиентские вечера</li>
       <li class="chip">Конференции</li>
+      <li class="chip">Форумы</li>
+      <li class="chip">Презентации</li>
     </ul>
     <a class="go" href="#projects">Смотреть проекты <span class="go__arr" aria-hidden="true">→</span></a>
   </div>
@@ -1223,7 +1427,6 @@ ul, ol { padding: 0; list-style: none; }
   <div class="wrap works__grid">
     <figure class="works__media">
       <img src="https://images.unsplash.com/photo-1727096857692-e9dadf2bc92e?w=960&amp;h=1200&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1727096857692-e9dadf2bc92e?w=480&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format 480w, https://images.unsplash.com/photo-1727096857692-e9dadf2bc92e?w=720&amp;h=900&amp;fit=crop&amp;q=70&amp;auto=format 720w, https://images.unsplash.com/photo-1727096857692-e9dadf2bc92e?w=960&amp;h=1200&amp;fit=crop&amp;q=70&amp;auto=format 960w, https://images.unsplash.com/photo-1727096857692-e9dadf2bc92e?w=1200&amp;h=1500&amp;fit=crop&amp;q=70&amp;auto=format 1200w" sizes="(min-width: 60rem) 38vw, 100vw" width="960" height="1200" alt="Сценический свет и фермы над площадкой — место для ролика агентства" loading="lazy" decoding="async">
-      <figcaption class="works__note">Здесь будет ролик с&nbsp;событий Ольги</figcaption>
     </figure>
     <div>
       <h2 class="h2" id="works-title">Что мы делаем</h2>
@@ -1234,8 +1437,34 @@ ul, ol { padding: 0; list-style: none; }
         <li class="step"><span class="step__num">03</span><span class="step__title">Декор и&nbsp;оформление</span><span class="step__text">Цветы, сервировка, текстиль, свет и&nbsp;неоновые надписи&nbsp;— оформление вокруг одной идеи.</span></li>
         <li class="step"><span class="step__num">04</span><span class="step__title">Сцена, свет и&nbsp;звук</span><span class="step__text">Техническую часть ведём вместе с&nbsp;подрядчиками: оборудование, монтаж, репетиции, тайминг.</span></li>
         <li class="step"><span class="step__num">05</span><span class="step__title">Площадка и&nbsp;кейтеринг</span><span class="step__text">Подбираем место под формат, число гостей и&nbsp;бюджет. Согласуем меню, подачу и&nbsp;работу официантов.</span></li>
-        <li class="step"><span class="step__num">06</span><span class="step__title">Фото и&nbsp;видео</span><span class="step__text">Фотограф, видеограф и&nbsp;короткий ролик о&nbsp;главных моментах&nbsp;— чтобы событие можно было пересмотреть.</span></li>
+        <li class="step"><span class="step__num">06</span><span class="step__title">Фото и&nbsp;видеопродакшн</span><span class="step__text">Своя команда видеопродакшна: фотограф, репортаж, отчётный ролик и&nbsp;короткие видео для&nbsp;соцсетей.</span></li>
         <li class="step"><span class="step__num">07</span><span class="step__title">Координация в&nbsp;день события</span><span class="step__text">Держим тайминг и&nbsp;всех подрядчиков на&nbsp;площадке. Решаем вопросы раньше, чем их&nbsp;заметят гости.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="ny band--photo" id="novyj-god" aria-labelledby="ny-title">
+  <picture class="media"><img src="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format" srcset="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=900&amp;h=1400&amp;fit=crop&amp;q=65&amp;auto=format 900w, https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format 1920w" sizes="100vw" width="1920" height="1200" alt="" loading="lazy" decoding="async"></picture>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="wrap ny__in">
+    <p class="label"><span class="label__dot">●</span>&nbsp;Сезон&nbsp;2026/27</p>
+    <h2 class="ny__title" id="ny-title">Новый год</h2>
+    <p class="ny__text">Корпоративные ёлки, детские праздники и&nbsp;городские гуляния. Даты и&nbsp;площадки на&nbsp;декабрь разбирают заранее&nbsp;— обсудим ваш праздник сейчас.</p>
+    <ul class="chips" aria-label="Форматы">
+      <li class="chip">Корпоратив</li>
+      <li class="chip">Детская ёлка</li>
+      <li class="chip">Семейный праздник</li>
+      <li class="chip">Городские гуляния</li>
+    </ul>
+    <a class="pill pill--solid ny__cta" href="#contacts" data-lead data-type="Новый год">Обсудить Новый год</a>
+    <div class="cal">
+      <p class="cal__label">Дальше по&nbsp;календарю</p>
+      <ol class="cal__list">
+        <li><span class="cal__date">23.02</span><span class="cal__name">День защитника Отечества</span></li>
+        <li><span class="cal__date">08.03</span><span class="cal__name">Женский день</span></li>
+        <li><span class="cal__date">Май</span><span class="cal__name">Майские праздники</span></li>
+        <li><span class="cal__date">Июнь</span><span class="cal__name">Выпускные</span></li>
       </ol>
     </div>
   </div>
@@ -1247,12 +1476,11 @@ ul, ol { padding: 0; list-style: none; }
     <h2 class="h2" id="projects-title">Проекты</h2>
     <a class="go" href="#vse-proekty">Все проекты <span class="go__arr" aria-hidden="true">→</span></a>
   </div>
-    <ul class="tiles">
+  <ul class="tiles">
     <li><a class="tile" href="#proekt-zaryadye"><img src="https://images.unsplash.com/photo-1619973226698-b77a5b5dd14b?w=1280&amp;h=800&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1619973226698-b77a5b5dd14b?w=640&amp;h=400&amp;fit=crop&amp;q=70&amp;auto=format 640w, https://images.unsplash.com/photo-1619973226698-b77a5b5dd14b?w=960&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format 960w, https://images.unsplash.com/photo-1619973226698-b77a5b5dd14b?w=1280&amp;h=800&amp;fit=crop&amp;q=70&amp;auto=format 1280w, https://images.unsplash.com/photo-1619973226698-b77a5b5dd14b?w=1600&amp;h=1000&amp;fit=crop&amp;q=70&amp;auto=format 1600w" sizes="(min-width: 48rem) 50vw, 100vw" width="1280" height="800" alt="" loading="lazy" decoding="async"><span class="tile__body"><span class="tile__meta">Городские</span><span class="tile__title">Зарядье. Год праздников</span><span class="tile__text">Первый год работы парка: праздники по&nbsp;календарю и&nbsp;концерты каждую неделю.</span></span></a></li>
     <li><a class="tile" href="#proekt-elizaveta-18"><img src="https://images.unsplash.com/photo-1536392706976-e486e2ba97af?w=1280&amp;h=800&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1536392706976-e486e2ba97af?w=640&amp;h=400&amp;fit=crop&amp;q=70&amp;auto=format 640w, https://images.unsplash.com/photo-1536392706976-e486e2ba97af?w=960&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format 960w, https://images.unsplash.com/photo-1536392706976-e486e2ba97af?w=1280&amp;h=800&amp;fit=crop&amp;q=70&amp;auto=format 1280w, https://images.unsplash.com/photo-1536392706976-e486e2ba97af?w=1600&amp;h=1000&amp;fit=crop&amp;q=70&amp;auto=format 1600w" sizes="(min-width: 48rem) 50vw, 100vw" width="1280" height="800" alt="" loading="lazy" decoding="async"><span class="tile__body"><span class="tile__meta">Частные</span><span class="tile__title">Елизавета 18</span><span class="tile__text">День рождения: зелёно-розовый декор, шторы и&nbsp;неоновая надпись.</span></span></a></li>
     <li class="tiles__wide"><a class="tile tile--cta" href="#contacts" data-lead data-type="Корпоративное"><img src="https://images.unsplash.com/photo-1768508950719-4d76978fdf44?w=1600&amp;h=1000&amp;fit=crop&amp;q=70&amp;auto=format" srcset="https://images.unsplash.com/photo-1768508950719-4d76978fdf44?w=960&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format 960w, https://images.unsplash.com/photo-1768508950719-4d76978fdf44?w=1600&amp;h=1000&amp;fit=crop&amp;q=70&amp;auto=format 1600w, https://images.unsplash.com/photo-1768508950719-4d76978fdf44?w=2240&amp;h=1400&amp;fit=crop&amp;q=70&amp;auto=format 2240w" sizes="100vw" width="1600" height="1000" alt="" loading="lazy" decoding="async"><span class="tile__body"><span class="tile__meta">Корпоративные</span><span class="tile__title">Ваш корпоратив</span><span class="tile__text">Пришлите повод, дату и&nbsp;число гостей&nbsp;— предложим идею и&nbsp;посчитаем смету.</span><span class="pill pill--solid pill--sm tile__pill">Обсудить задачу</span></span></a></li>
   </ul>
-  <p class="wrap projects__note">Фото на&nbsp;карточках&nbsp;— референсы, не&nbsp;съёмки проектов. Настоящие фото и&nbsp;истории добавим, когда Ольга их&nbsp;пришлёт.</p>
 </section>
 
 <section class="trust band band--dark" id="trust" aria-labelledby="trust-title">
@@ -1274,11 +1502,16 @@ ul, ol { padding: 0; list-style: none; }
   </div>
 </section>
 
-<section class="pause band--photo" aria-labelledby="pause-line">
-  <picture class="media"><source media="(max-width: 47.99rem)" srcset="https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=640&amp;h=1138&amp;fit=crop&amp;q=65&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.46&amp;fp-y=0.5 640w, https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=900&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.46&amp;fp-y=0.5 900w, https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=1080&amp;h=1920&amp;fit=crop&amp;q=65&amp;auto=format&amp;crop=focalpoint&amp;fp-x=0.46&amp;fp-y=0.5 1080w" sizes="100vw" width="1080" height="1920"><img src="https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format" srcset="https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=1280&amp;h=800&amp;fit=crop&amp;q=65&amp;auto=format 1280w, https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format 1920w, https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=2560&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 2560w" sizes="100vw" width="1920" height="1200" alt="Салют над вечерним городом" loading="lazy" decoding="async"></picture>
-  <div class="scrim" aria-hidden="true"></div>
+<section class="reel band band--dark" id="video" aria-labelledby="reel-title">
   <div class="wrap">
-    <p class="pause__line" id="pause-line">Вы празднуете. Мы&nbsp;работаем<span class="label__dot">.</span></p>
+    <div class="sec-head sec-head--row">
+      <h2 class="h2" id="reel-title">Как это было</h2>
+      <p class="sec-head__note">Отчётное видео с&nbsp;нашего события&nbsp;— лучше любых слов о&nbsp;том, как мы&nbsp;работаем.</p>
+    </div>
+    <div class="reel__frame">
+      <video class="reel__video" playsinline preload="none" poster="https://images.unsplash.com/photo-1622616912324-dd390cabea5f?w=1600&amp;h=900&amp;fit=crop&amp;q=65&amp;auto=format" data-src="https://assets.mixkit.co/videos/48509/48509-720.mp4"></video>
+      <button class="reel__play" type="button" data-reel-play><span class="reel__btn" aria-hidden="true"></span><span class="reel__cap">Смотреть отчётное видео</span></button>
+    </div>
   </div>
 </section>
 
@@ -1296,6 +1529,27 @@ ul, ol { padding: 0; list-style: none; }
   </div>
 </section>
 
+<section class="social band band--light" id="socseti" aria-labelledby="social-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--row">
+      <h2 class="h2" id="social-title">Мы там, где праздник</h2>
+      <p class="sec-head__note">Больше событий, закулисья и&nbsp;новостей&nbsp;— в&nbsp;наших соцсетях. Подписывайтесь и&nbsp;оставайтесь на&nbsp;связи.</p>
+    </div>
+    <ul class="feed" aria-label="Фото из соцсетей">
+      <li><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format" alt="" width="600" height="600" loading="lazy" decoding="async"></li>
+      <li><img src="https://images.unsplash.com/photo-1741969494307-55394e3e4071?w=600&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format" alt="" width="600" height="600" loading="lazy" decoding="async"></li>
+      <li><img src="https://images.unsplash.com/photo-1655386068478-e8283085cac7?w=600&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format" alt="" width="600" height="600" loading="lazy" decoding="async"></li>
+      <li><img src="https://images.unsplash.com/photo-1723832348140-a2d9eb1753b1?w=600&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format" alt="" width="600" height="600" loading="lazy" decoding="async"></li>
+      <li><img src="https://images.unsplash.com/photo-1756331490734-8b8c3bf63ef8?w=600&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format" alt="" width="600" height="600" loading="lazy" decoding="async"></li>
+      <li><img src="https://images.unsplash.com/photo-1778694277130-333584fc1684?w=600&amp;h=600&amp;fit=crop&amp;q=70&amp;auto=format" alt="" width="600" height="600" loading="lazy" decoding="async"></li>
+    </ul>
+    <div class="social__btns">
+      <a class="pill pill--solid" href="https://t.me/OlgaBilyk77"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg>Telegram</a>
+      <a class="pill pill--line" href="#" aria-label="Instagram — адрес уточняем"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg>Instagram*</a>
+    </div>
+  </div>
+</section>
+
 <section class="contact band--photo" id="contacts" aria-labelledby="contact-title">
   <picture class="media"><source media="(max-width: 47.99rem)" srcset="https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=640&amp;h=1138&amp;fit=crop&amp;q=65&amp;auto=format 640w, https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=900&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 900w, https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=1080&amp;h=1920&amp;fit=crop&amp;q=65&amp;auto=format 1080w" sizes="100vw" width="1080" height="1920"><img src="https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format" srcset="https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=1280&amp;h=800&amp;fit=crop&amp;q=65&amp;auto=format 1280w, https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=1920&amp;h=1200&amp;fit=crop&amp;q=65&amp;auto=format 1920w, https://images.unsplash.com/photo-1775346098928-cab0ac41b9a2?w=2560&amp;h=1600&amp;fit=crop&amp;q=65&amp;auto=format 2560w" sizes="100vw" width="1920" height="1200" alt="" loading="lazy" decoding="async"></picture>
   <div class="scrim" aria-hidden="true"></div>
@@ -1303,7 +1557,7 @@ ul, ol { padding: 0; list-style: none; }
     <h2 class="contact__title" id="contact-title">Обсудим ваше событие?</h2>
     <p class="contact__lead">Оставьте имя и&nbsp;телефон&nbsp;— Ольга перезвонит и&nbsp;расспросит о&nbsp;задумке. Хватит повода и&nbsp;примерной даты, остальное обсудим.</p>
     <div class="contact__grid">
-            <div class="clinks">
+      <div class="clinks">
         <a class="clink" href="https://t.me/OlgaBilyk77"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg><span class="clink__v">Telegram</span><span class="clink__k">написать</span></a>
         <a class="clink" href="https://wa.me/79055474281"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg><span class="clink__v">WhatsApp</span><span class="clink__k">написать</span></a>
         <a class="clink" href="tel:+79055474281"><svg class="ic ic--line" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg><span class="clink__v">+7 905 547-42-81</span><span class="clink__k">позвонить</span></a>
@@ -1331,10 +1585,12 @@ ul, ol { padding: 0; list-style: none; }
           <div class="select">
             <select id="f-type" name="type" required aria-describedby="f-type-err">
               <option value="">Выберите</option>
-              <option>Городское</option>
               <option>Частное</option>
+              <option>Свадьба</option>
               <option>Корпоративное</option>
-              <option>Конференция или форум</option>
+              <option>Деловое: конференция, форум</option>
+              <option>Городское</option>
+              <option>Новый год</option>
               <option>Другое</option>
             </select>
           </div>
@@ -1349,17 +1605,41 @@ ul, ol { padding: 0; list-style: none; }
         </div>
         <div class="form__submit">
           <button class="pill pill--accent" type="submit">Отправить заявку</button>
-          <p class="form__note">Прототип: форма никуда не&nbsp;отправляет данные</p>
         </div>
       </form>
 
       <div class="done" data-done hidden tabindex="-1" aria-live="polite">
         <p class="done__title">Заявка отправлена<span>.</span></p>
         <p>Спасибо! Ольга свяжется с&nbsp;вами, чтобы обсудить задумку.</p>
-        <p class="form__note">Прототип: данные никуда не&nbsp;ушли.</p>
         <button class="pill pill--line pill--sm" type="button" data-again>Заполнить ещё раз</button>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="office band band--dark" id="ofis" aria-labelledby="office-title">
+  <div class="wrap office__grid">
+    <div class="office__text">
+      <h2 class="h2" id="office-title">Офис</h2>
+      <p class="office__addr">Москва, Тверская улица,&nbsp;7</p>
+      <p class="office__hint">Встречи&nbsp;— по&nbsp;договорённости. Можно приехать к&nbsp;нам или&nbsp;встретиться на&nbsp;вашей площадке.</p>
+      <a class="go" href="https://yandex.ru/maps/?pt=37.611711,55.757939&amp;z=17&amp;l=map" target="_blank" rel="noopener">Открыть в&nbsp;Яндекс Картах <span class="go__arr" aria-hidden="true">→</span></a>
+    </div>
+    <a class="office__map" href="https://yandex.ru/maps/?pt=37.611711,55.757939&amp;z=17&amp;l=map" target="_blank" rel="noopener" aria-label="Офис на Яндекс Картах">
+      <img src="https://static-maps.yandex.ru/1.x/?ll=37.611711,55.757939&amp;z=16&amp;l=map&amp;size=650,450&amp;scale=2&amp;pt=37.611711,55.757939,pm2rdm" alt="Карта: Москва, Тверская улица, 7" width="650" height="450" loading="lazy" decoding="async">
+    </a>
+  </div>
+</section>
+
+<section class="dirs band band--dark" id="napravleniya" aria-labelledby="dirs-title">
+  <div class="wrap">
+    <h2 class="label dirs__title" id="dirs-title"><span class="label__dot">●</span>&nbsp;Наши направления</h2>
+    <ul class="dirs__list">
+      <li><a class="dir" href="#vidy"><span class="dir__mark">Live Love Joy</span><span class="dir__sub">events</span><span class="dir__text">Частные, корпоративные и&nbsp;городские события</span></a></li>
+      <li><a class="dir" href="#love"><span class="dir__mark">Live Love Joy</span><span class="dir__sub">wedding</span><span class="dir__text">Свадьбы</span></a></li>
+      <li><a class="dir" href="#novyj-god"><span class="dir__mark">Live Love Joy</span><span class="dir__sub">new year</span><span class="dir__text">Новогодние праздники</span></a></li>
+      <li><a class="dir" href="#video"><span class="dir__mark">Live Love Joy</span><span class="dir__sub">video</span><span class="dir__text">Видеопродакшн</span></a></li>
+    </ul>
   </div>
 </section>
 
@@ -1375,14 +1655,22 @@ ul, ol { padding: 0; list-style: none; }
       </div>
     </div>
     <div class="foot__grid">
-      <nav class="foot__nav" aria-label="Разделы в подвале">
-        <a href="#live">Городские</a><a href="#love">Частные</a><a href="#joy">Корпоративные</a><a href="#projects">Проекты</a><a href="#zhurnal">Журнал</a><a href="#contacts">Контакты</a>
+      <div class="foot__cols">
+      <nav class="foot__col" aria-label="Направления">
+        <p class="foot__h">Направления</p>
+        <a href="#love">Частные</a><a href="#love">Свадьбы</a><a href="#joy">Корпоративные</a><a href="#live">Городские</a><a href="#novyj-god">Новый год</a><a href="#video">Видеопродакшн</a>
       </nav>
+      <nav class="foot__col" aria-label="Разделы">
+        <p class="foot__h">Разделы</p>
+        <a href="#about">О нас</a><a href="#about" data-tab-to="team">Команда</a><a href="#projects">Проекты</a><a href="#zhurnal">Журнал</a><a href="#contacts">Контакты</a><a href="#ofis">Офис</a>
+      </nav>
+      </div>
       <div class="foot__contacts">
         <a href="tel:+79055474281">+7 905 547-42-81</a>
         <a href="mailto:hello@livelovejoy.ru">hello@livelovejoy.ru</a>
       </div>
       <ul class="socials">
+        <li><a class="icon-btn" href="https://t.me/OlgaBilyk77" aria-label="Telegram"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg></a></li>
         <li><a class="icon-btn" href="#" aria-label="Instagram — адрес уточняем"><svg class="ic ic--fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg></a></li>
       </ul>
     </div>
@@ -1390,7 +1678,6 @@ ul, ol { padding: 0; list-style: none; }
       <a href="#politika">Политика конфиденциальности</a>
       <span>© 2026 Live Love Joy</span>
       <span>*Instagram принадлежит Meta, деятельность которой запрещена в&nbsp;РФ</span>
-      <span>Фото и&nbsp;видео&nbsp;— временные (Unsplash, Mixkit), заменим на&nbsp;съёмки Ольги</span>
     </div>
   </div>
 </footer>
@@ -1401,6 +1688,10 @@ ul, ol { padding: 0; list-style: none; }
 </nav>
 
 <dialog class="lead-dlg band--dark" id="lead-dlg" aria-labelledby="lead-title">
+  <figure class="lead-dlg__photo">
+    <img src="https://images.unsplash.com/photo-1782061932407-d0469f5772dc?w=640&amp;h=860&amp;fit=crop&amp;q=70&amp;auto=format" alt="" width="640" height="860" loading="lazy" decoding="async">
+    <figcaption class="lead-dlg__who"><span class="lead-dlg__name">Ольга</span><span class="lead-dlg__role">Ответит лично</span></figcaption>
+  </figure>
   <div class="lead-dlg__in">
     <button class="icon-btn menu__close lead-dlg__close" type="button" data-lead-close><span class="sr-only">Закрыть</span></button>
     <h2 class="lead-dlg__title" id="lead-title">Обсудим ваше событие?</h2>
@@ -1423,10 +1714,12 @@ ul, ol { padding: 0; list-style: none; }
           <div class="select">
             <select id="m-type" name="type" required aria-describedby="m-type-err">
               <option value="">Выберите</option>
-              <option>Городское</option>
               <option>Частное</option>
+              <option>Свадьба</option>
               <option>Корпоративное</option>
-              <option>Конференция или форум</option>
+              <option>Деловое: конференция, форум</option>
+              <option>Городское</option>
+              <option>Новый год</option>
               <option>Другое</option>
             </select>
           </div>
@@ -1441,13 +1734,11 @@ ul, ol { padding: 0; list-style: none; }
         </div>
         <div class="form__submit">
           <button class="pill pill--accent" type="submit">Отправить</button>
-          <p class="form__note">Прототип: форма никуда не&nbsp;отправляет данные</p>
         </div>
     </form>
     <div class="done" data-done hidden tabindex="-1" aria-live="polite">
       <p class="done__title">Заявка отправлена<span>.</span></p>
       <p>Спасибо! Ольга свяжется с&nbsp;вами, чтобы обсудить задумку.</p>
-      <p class="form__note">Прототип: данные никуда не&nbsp;ушли.</p>
       <div class="done__btns">
         <button class="pill pill--solid pill--sm" type="button" data-lead-close>Закрыть</button>
         <button class="pill pill--line pill--sm" type="button" data-again>Заполнить ещё раз</button>
@@ -1459,7 +1750,7 @@ ul, ol { padding: 0; list-style: none; }
 <aside class="vpanel" aria-label="Варианты дизайна">
   <button class="vpanel__toggle" type="button" aria-expanded="false" aria-controls="vpanel-body" data-vpanel-toggle><span class="vpanel__dot" aria-hidden="true"></span><span>Варианты<span class="vpanel__more"> дизайна</span></span><span class="vpanel__chev" aria-hidden="true"></span></button>
   <div class="vpanel__body" id="vpanel-body" hidden>
-    <p class="vpanel__hint">Нажимайте&nbsp;— страница меняется сразу и&nbsp;сама прокручивается к&nbsp;изменению. На&nbsp;готовом сайте этой панели не&nbsp;будет.</p>
+    <p class="vpanel__hint">Нажимайте&nbsp;— страница меняется сразу и&nbsp;сама прокручивается к&nbsp;изменению.</p>
     <div class="vpanel__grp" role="group" aria-labelledby="vp-color">
       <p class="vpanel__label" id="vp-color">Цвет</p>
       <div class="vpanel__opts">
@@ -1481,7 +1772,7 @@ ul, ol { padding: 0; list-style: none; }
         <button type="button" data-set="deviz" data-val="scenes">Вместо LIVE, LOVE, JOY</button>
         <button type="button" data-set="deviz" data-val="hero">Под названием</button>
         <button type="button" data-set="deviz" data-val="block">Отдельным блоком</button>
-        <button type="button" data-set="deviz" data-val="marquee">Бегущей строкой</button>
+        <button type="button" data-set="deviz" data-val="marquee">Только бегущая строка</button>
       </div>
     </div>
     <div class="vpanel__grp" role="group" aria-labelledby="vp-foot">
@@ -1740,6 +2031,44 @@ ul, ol { padding: 0; list-style: none; }
     root.style.overflow = '';
     if (leadOpener) leadOpener.focus({ preventScroll: true });
   });
+
+  /* О нас | Команда: вкладки (стрелки переключают), ссылки «Команда» в меню и подвале открывают нужную вкладку */
+  const tabBtns = [...document.querySelectorAll('[data-tab]')];
+  const setTab = (name, focus) => {
+    tabBtns.forEach((b) => {
+      const on = b.dataset.tab === name;
+      b.setAttribute('aria-selected', String(on));
+      b.tabIndex = on ? 0 : -1;
+      if (on && focus) b.focus();
+      document.querySelector('[data-panel="' + b.dataset.tab + '"]').hidden = !on;
+    });
+  };
+  tabBtns.forEach((b, i) => {
+    b.addEventListener('click', () => setTab(b.dataset.tab));
+    b.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      const next = tabBtns[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabBtns.length) % tabBtns.length];
+      setTab(next.dataset.tab, true);
+    });
+  });
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('[data-tab-to]');
+    if (a) setTab(a.dataset.tabTo);
+  }, true);
+
+  /* Отчётное видео: грузим по нажатию, дальше — штатные кнопки плеера */
+  const reel = document.querySelector('.reel');
+  const reelPlay = reel && reel.querySelector('[data-reel-play]');
+  if (reelPlay) {
+    reelPlay.addEventListener('click', () => {
+      const v = reel.querySelector('.reel__video');
+      if (!v.getAttribute('src')) v.src = v.dataset.src;
+      v.controls = true;
+      reel.classList.add('is-playing');
+      const p = v.play(); if (p && p.catch) p.catch(() => {});
+      v.focus({ preventScroll: true });
+    });
+  }
 
   /* Фото в буквах подвала грузим, когда подвал близко */
   const fsign = document.querySelector('.foot__sign');
