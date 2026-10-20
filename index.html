@@ -1076,12 +1076,13 @@ ul, ol { padding: 0; list-style: none; }
 }
 .dir__mark { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 800; font-size: min(clamp(1.25rem, 0.8rem + 2.2vw, 3rem), calc(100cqi / 8.4)); line-height: 1; text-transform: uppercase; white-space: nowrap; }
 .dir__sub { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 300; font-size: clamp(1.25rem, 0.8rem + 2.2vw, 3rem); line-height: 1; text-transform: lowercase; color: var(--link); white-space: nowrap; }
-.dir__text { grid-column: 1 / -1; font-size: var(--text-sm); color: var(--muted); }
-.dir:hover .dir__mark { color: var(--link); }
+.dir__arr { display: none; font-size: var(--text-h3); color: var(--muted); transition: color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.dir:hover .dir__mark, .dir:hover .dir__arr { color: var(--link); }
+.dir:hover .dir__arr { transform: translateX(0.25em); }
 @media (min-width: 48rem) { .dir { grid-template-columns: auto minmax(0, 1fr); } }
 @media (min-width: 60rem) {
   .dir { grid-template-columns: auto auto minmax(0, 1fr); }
-  .dir__text { grid-column: 3; justify-self: end; text-align: right; }
+  .dir__arr { display: block; justify-self: end; }
 }
 
 /* ── Единая шкала текста (12.10, жалоба Ольги «размер шрифтов разный») ──────────
@@ -1100,7 +1101,7 @@ ul, ol { padding: 0; list-style: none; }
 .member__name { font-size: min(var(--text-card), calc(100cqi / 13)); }
 .hero__tagline, .sec-head__note, .office__hint, .lead-dlg__lead,
 .about__letter p, .team__lead, .scene__text, .works__lead, .ny__text, .contact__lead { font-size: var(--text-lg); line-height: 1.5; }
-.type__text, .step__text, .tile__text, .post__text, .member__role, .dir__text, .fact__cap, .cal__name, .clinks__hint { font-size: var(--text-base); line-height: 1.5; }
+.type__text, .step__text, .tile__text, .post__text, .member__role, .fact__cap, .cal__name, .clinks__hint { font-size: var(--text-base); line-height: 1.5; }
 .brand__sub { font-size: 0.75rem; }
 @media (min-width: 60rem) {
   /* четыре колонки видов: поля поуже, чтобы «КОРПОРАТИВНЫЕ» встало в кегль заголовка карточки */
@@ -1148,7 +1149,7 @@ body {
 }
 
 /* ЛЮБИ: ровная сетка из двух фото вместо коллажа */
-.collage--even { position: static; aspect-ratio: auto; display: grid; grid-template-columns: 3fr 2fr; gap: var(--space-xs); }
+.collage--even { position: static; aspect-ratio: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xs); }
 .collage--even .collage__item { position: relative; inset: auto; width: auto; outline: 0; aspect-ratio: 4 / 5; }
 
 /* свадьбы */
@@ -1179,20 +1180,27 @@ body {
 .menu__contacts { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-lg); width: 100%; font-size: var(--text-sm); color: var(--muted); }
 .menu__contacts a { text-decoration: none; }
 
-/* подвал как у M2: слева разделы крупно, справа контакты */
+/* подвал как у M2 (Ольга 16.10 п. 19: «слева как-то интересно, а не просто в столбик»):
+   слева разделы кнопками-таблетками в несколько рядов, справа контакты */
 .foot__grid--m2 { display: grid; gap: var(--space-2xl); align-items: start; }
-.foot__menu { display: grid; gap: var(--space-xs); justify-items: start; }
-.foot__menu a { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700; font-size: clamp(1rem, 0.85rem + 0.6vw, 1.375rem); text-transform: uppercase; text-decoration: none; line-height: 1.2; }
-.foot__menu a:hover { color: var(--link); }
+.foot__menu { display: flex; flex-wrap: wrap; gap: var(--space-xs); align-content: start; }
+.foot__menu a {
+  display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 var(--space-md);
+  border: var(--rule-w) solid color-mix(in oklch, var(--ink) 40%, transparent); border-radius: var(--radius-pill);
+  font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.02em; text-decoration: none; white-space: nowrap;
+  transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+}
+.foot__menu a:hover { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
 .foot__info { display: grid; gap: var(--space-sm); justify-items: start; }
+.foot__info .foot__h { margin-bottom: var(--space-2xs); font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-weight: 700; font-size: var(--text-h3); letter-spacing: 0.02em; color: var(--ink); }
 .foot__big { font-size: var(--text-card); font-weight: 600; text-decoration: none; }
 .foot__big:hover, .foot__addr a:hover { color: var(--link); }
 .foot__addr { font-size: var(--text-sm); color: var(--muted); }
 .foot__addr a { color: inherit; }
 @media (min-width: 48rem) {
-  .foot__grid--m2 { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--space-2xl); }
-  .foot__menu { grid-template-columns: repeat(2, auto); grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: var(--space-2xl); justify-content: start; }
-  .foot__menu a { white-space: nowrap; }
+  .foot__grid--m2 { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--space-3xl); }
+  .foot__menu { max-width: 40rem; }
+  .foot__info { justify-items: end; text-align: right; }
 }
 @media (prefers-reduced-motion: reduce) { .badge__ring, .feed-run__track { animation: none !important; } .feed-run { overflow-x: auto; } }
 
@@ -1464,9 +1472,10 @@ body {
         </ul>
         <a class="go" href="#projects">Смотреть проекты <span class="go__arr" aria-hidden="true">→</span></a>
       </div>
-      <div class="collage collage--even">
-        <figure class="collage__item collage__a"><img src="media/photo-1782038523014-8312-720-e6e1a2ca0c.jpg" srcset="media/photo-1782038523014-8312-480-6a10f5a483.jpg 480w, media/photo-1782038523014-8312-720-e6e1a2ca0c.jpg 720w, media/photo-1782038523014-8312-960-de05771e38.jpg 960w" sizes="(min-width: 60rem) 31vw, 61vw" width="720" height="900" alt="Праздничный стол в саду: гости, белая скатерть и розовые цветы" loading="lazy" decoding="async"></figure>
-        <figure class="collage__item collage__c"><img src="media/photo-1627764927037-a4c3-640-a823559059.jpg" srcset="media/photo-1627764927037-a4c3-400-57336e4182.jpg 400w, media/photo-1627764927037-a4c3-640-a823559059.jpg 640w, media/photo-1627764927037-a4c3-880-6571126109.jpg 880w" sizes="(min-width: 60rem) 23vw, 45vw" width="640" height="480" alt="Дети играют с воздушными шарами на лужайке" loading="lazy" decoding="async"></figure>
+            <div class="collage collage--even">
+        <figure class="collage__item collage__a"><img src="media/photo-1782038523014-8312-480-6a10f5a483.jpg" srcset="media/photo-1782038523014-8312-320-004f89331f.jpg 320w, media/photo-1782038523014-8312-480-6a10f5a483.jpg 480w, media/photo-1782038523014-8312-720-e6e1a2ca0c.jpg 720w" sizes="(min-width: 60rem) 15vw, 31vw" width="480" height="600" alt="Праздничный стол в саду: гости, белая скатерть и розовые цветы" loading="lazy" decoding="async"></figure>
+        <figure class="collage__item collage__b"><img src="media/photo-1782038522351-ff45-480-dcade93156.jpg" srcset="media/photo-1782038522351-ff45-320-de150f12ff.jpg 320w, media/photo-1782038522351-ff45-480-dcade93156.jpg 480w, media/photo-1782038522351-ff45-720-2752e552da.jpg 720w" sizes="(min-width: 60rem) 15vw, 31vw" width="480" height="600" alt="Букет розовых гортензий в руках" loading="lazy" decoding="async"></figure>
+        <figure class="collage__item collage__c"><img src="media/photo-1627764927037-a4c3-480-d9390cf9ee.jpg" srcset="media/photo-1627764927037-a4c3-320-5f05afa7ad.jpg 320w, media/photo-1627764927037-a4c3-480-d9390cf9ee.jpg 480w, media/photo-1627764927037-a4c3-720-9d839c8c8c.jpg 720w" sizes="(min-width: 60rem) 15vw, 31vw" width="480" height="600" alt="Дети играют с воздушными шарами на лужайке" loading="lazy" decoding="async"></figure>
       </div>
     </div>
   </div>
@@ -1706,6 +1715,18 @@ body {
         <button class="pill pill--line pill--sm" type="button" data-again>Заполнить ещё раз</button>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="dirs band band--dark" id="napravleniya" aria-labelledby="dirs-title">
+  <div class="wrap">
+    <h2 class="label dirs__title" id="dirs-title"><span class="label__dot">●</span>&nbsp;Наши направления</h2>
+    <ul class="dirs__list">
+      <li><a class="dir" href="#vidy"><span class="dir__mark">Live Love Joy</span><span class="dir__sub">events</span><span class="dir__arr" aria-hidden="true">→</span></a></li>
+      <li><a class="dir" href="#svadby"><span class="dir__mark">Live Love Joy</span><span class="dir__sub">wedding</span><span class="dir__arr" aria-hidden="true">→</span></a></li>
+      <li><a class="dir" href="#novyj-god"><span class="dir__mark">Live Love Joy</span><span class="dir__sub">new year</span><span class="dir__arr" aria-hidden="true">→</span></a></li>
+      <li><a class="dir" href="#video"><span class="dir__mark">Live Love Joy</span><span class="dir__sub">video</span><span class="dir__arr" aria-hidden="true">→</span></a></li>
+    </ul>
   </div>
 </section>
 
